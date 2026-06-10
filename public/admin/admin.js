@@ -120,6 +120,31 @@ window.handleFileUpload = async (fileInputId, targetInputId) => {
   reader.readAsDataURL(file);
 };
 
+// HELPER: Convert normal YouTube/Vimeo URLs to embed compatible format
+function convertToEmbedUrl(url) {
+  if (!url) return '';
+  url = url.trim();
+  
+  // Already in embed format
+  if (url.includes('youtube.com/embed/') || url.includes('player.vimeo.com/video/')) {
+    return url;
+  }
+  
+  // YouTube watch links (e.g. youtube.com/watch?v=ID or youtu.be/ID)
+  const ytWatchMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s?]+)/);
+  if (ytWatchMatch && ytWatchMatch[1]) {
+    return `https://www.youtube.com/embed/${ytWatchMatch[1]}`;
+  }
+
+  // Vimeo standard link (e.g. vimeo.com/ID)
+  const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+  if (vimeoMatch && vimeoMatch[1]) {
+    return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+  }
+  
+  return url;
+}
+
 // SYNCHRONIZED CARD ACTIONS (MODIFIES ES & EN SIMULTANEOUSLY)
 
 window.addWhyPoint = () => {
@@ -286,7 +311,7 @@ function renderTabContent(lang) {
             <div class="bg-slate-900 p-4 rounded border border-slate-800 space-y-2 relative">
               <button onclick="removeWhyPoint(${i})" class="absolute top-2 right-2 text-rose-500 hover:text-rose-400 font-bold px-1 text-xs">Eliminar</button>
               <label class="block text-[10px] text-slate-500 font-bold">Punto ${i+1}</label>
-              <input type="text" id="${lang}-why-point-title-${i}" class="w-full bg-slate-800 border border-slate-700 p-2 rounded text-white text-sm animate-pulse-once" value="${pt.title || ''}" placeholder="Título">
+              <input type="text" id="${lang}-why-point-title-${i}" class="w-full bg-slate-800 border border-slate-700 p-2 rounded text-white text-sm" value="${pt.title || ''}" placeholder="Título">
               <textarea id="${lang}-why-point-desc-${i}" class="w-full bg-slate-800 border border-slate-700 p-2 rounded text-white text-xs" rows="2" placeholder="Descripción">${pt.desc || ''}</textarea>
             </div>
           `).join('')}
@@ -517,7 +542,11 @@ window.saveChanges = async () => {
   appData.general.whatsapp = document.getElementById('gen-whatsapp').value;
   appData.general.instagram = document.getElementById('gen-instagram').value;
   appData.general.youtube = document.getElementById('gen-youtube').value;
-  appData.general.heroVideoUrl = document.getElementById('gen-video-url').value;
+  
+  // Convert video URL to embed format automatically before saving
+  const rawVideoUrl = document.getElementById('gen-video-url').value;
+  appData.general.heroVideoUrl = convertToEmbedUrl(rawVideoUrl);
+  
   appData.general.pressKitUrl = document.getElementById('gen-press-kit').value;
   
   appData.general.heroImages = [document.getElementById('gen-img-hero').value];

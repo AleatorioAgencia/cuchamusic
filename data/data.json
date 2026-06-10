@@ -2,8 +2,8 @@
   "general": {
     "whatsapp": "34600000000",
     "instagram": "https://instagram.com/cuchamusic",
-    "youtube": "https://youtube.com/cuchamusic",
-    "pressKitUrl": "#",
+    "youtube": "https://youtu.be/dv7tUskx5nA?si=jCzUrZ5A0WRnShI6",
+    "pressKitUrl": "https://youtu.be/dv7tUskx5nA?si=iO8tQjQCoM3AGVmb",
     "heroVideoUrl": "",
     "heroImages": [
       "/cucha2.jpg"
@@ -72,22 +72,10 @@
     },
     "eventTypes": [
       {
-        "id": "bodas",
-        "title": "Bodas",
-        "desc": "Una celebración de nivel con la energía en su punto máximo, combinando elegancia, protocolo y baile salvaje.",
-        "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-      },
-      {
         "id": "privados",
         "title": "Eventos privados",
         "desc": "Sets exclusivos adaptados a residencias de lujo, villas y celebraciones íntimas con identidad sonora propia.",
         "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "id": "corporate",
-        "title": "Corporate events",
-        "desc": "El toque premium y sofisticado ideal para lanzamientos de marca, cócteles corporativos y galas exclusivas.",
-        "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       },
       {
         "id": "hoteles",
@@ -97,7 +85,7 @@
       },
       {
         "id": "beachclubs",
-        "title": "Beach clubs y rooftops",
+        "title": "Beach clubs y festivales",
         "desc": "Sets cargados de ritmo orgánico y beats tropicales sofisticados perfectos para la puesta de sol y open-air.",
         "image": "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       },
@@ -228,22 +216,10 @@
     },
     "eventTypes": [
       {
-        "id": "bodas",
-        "title": "Weddings",
-        "desc": "A high-tier celebration with energy at its peak, combining elegance, protocol, and wild dancing.",
-        "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-      },
-      {
         "id": "privados",
         "title": "Private events",
         "desc": "Exclusive sets tailored to luxury residences, villas, and intimate celebrations with their own sonic identity.",
         "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
-      },
-      {
-        "id": "corporate",
-        "title": "Corporate events",
-        "desc": "The ideal premium and sophisticated touch for brand launches, corporate cocktails, and exclusive galas.",
-        "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       },
       {
         "id": "hoteles",
@@ -253,7 +229,7 @@
       },
       {
         "id": "beachclubs",
-        "title": "Beach clubs & rooftops",
+        "title": "Beach clubs & Festivals",
         "desc": "Sets filled with organic rhythms and sophisticated tropical beats perfect for sunset and open-air vibes.",
         "image": "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
       },
