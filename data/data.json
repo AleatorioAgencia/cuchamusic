@@ -1,0 +1,345 @@
+{
+  "general": {
+    "whatsapp": "34600000000",
+    "instagram": "https://instagram.com/cuchamusic",
+    "youtube": "https://youtube.com/cuchamusic",
+    "pressKitUrl": "#",
+    "heroVideoUrl": "",
+    "heroImages": [
+      "/cucha2.jpg"
+    ],
+    "experienceImage": "/cucha2.jpg",
+    "bioImage": "/cucha.png",
+    "logoText": "CUCHAMUSIC",
+    "logoImage": "/uploads/1781132871155-hf_20260610_213809_5407ad7f-15de-40d7-bcc6-75ad9b1b9005-removebg-preview.png",
+    "galleryImages": [
+      "https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "/cucha.png",
+      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
+      "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+    ],
+    "sectionsVisibility": {
+      "whyCucha": true,
+      "experience": true,
+      "eventTypes": true,
+      "socialProof": true,
+      "gallery": true,
+      "bookingProcess": true,
+      "faqs": true,
+      "contactForm": true,
+      "finalCta": true
+    }
+  },
+  "es": {
+    "hero": {
+      "logo": "CUCHA",
+      "tagline": "BODAS · EVENTOS PRIVADOS · HOTELES · BEACH CLUBS · CORPORATE · DUBAI + INT",
+      "title": "Baila libre.",
+      "subtitle": "Percusión en vivo para noches que no se olvidan.",
+      "description": "CUCHA fusiona DJ set y percusión en vivo para crear una experiencia elegante, intensa y profundamente bailable para bodas, eventos privados, hoteles, rooftops, marcas y celebraciones premium en Dubái y bookings internacionales.",
+      "btnWhatsapp": "Reservar por WhatsApp",
+      "btnReel": "Ver experiencia en vivo",
+      "trustStrip": "Bodas · Eventos Privados · Hoteles · Beach Clubs · Corporate Events · Dubai + International"
+    },
+    "whyCucha": {
+      "title": "Una experiencia que transforma el ambiente",
+      "text": "No es solo música. Es una presencia en vivo que cambia la energía del espacio, conecta con la audiencia y convierte cada evento en una experiencia con identidad propia.",
+      "points": [
+        {
+          "title": "Energía en vivo",
+          "desc": "La percusión orgánica añade textura, calor y una dimensión visual interactiva que un DJ solo no puede transmitir."
+        },
+        {
+          "title": "Formato premium",
+          "desc": "Estética tropical y elegante diseñada para venues de alta gama, beach clubs de lujo y eventos privados exclusivos."
+        },
+        {
+          "title": "Lectura del momento",
+          "desc": "Lectura precisa de la pista de baile para modular el ritmo en tiempo real, adaptándose a la vibra de los invitados."
+        },
+        {
+          "title": "Impacto visual y emocional",
+          "desc": "El performance escénico crea momentos memorables que los invitados fotografían, comparten y recuerdan."
+        }
+      ]
+    },
+    "experience": {
+      "title": "Ritmo que mueve a la gente",
+      "text1": "Cucha Music es una propuesta en vivo que une la fuerza de un DJ set con la energía orgánica de la percusión. El resultado es un formato híbrido, elegante y explosivo, diseñado para elevar la pista, crear atmósfera y generar una conexión inmediata con el público.",
+      "text2": "Con congas, percusión en vivo y una lectura precisa del momento, cada presentación se adapta al espacio y a la ocasión para construir una experiencia vibrante, sofisticada y llena de movimiento.",
+      "quote": "La música no solo se escucha: se siente, se comparte y se baila.",
+      "btnWhatsapp": "Reservar por WhatsApp"
+    },
+    "eventTypes": [
+      {
+        "id": "bodas",
+        "title": "Bodas",
+        "desc": "Una celebración de nivel con la energía en su punto máximo, combinando elegancia, protocolo y baile salvaje.",
+        "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "privados",
+        "title": "Eventos privados",
+        "desc": "Sets exclusivos adaptados a residencias de lujo, villas y celebraciones íntimas con identidad sonora propia.",
+        "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "corporate",
+        "title": "Corporate events",
+        "desc": "El toque premium y sofisticado ideal para lanzamientos de marca, cócteles corporativos y galas exclusivas.",
+        "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "hoteles",
+        "title": "Hoteles y venues de lujo",
+        "desc": "Ambiente vibrante y de clase mundial para los hoteles de cinco estrellas y los clubes más selectos.",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "beachclubs",
+        "title": "Beach clubs y rooftops",
+        "desc": "Sets cargados de ritmo orgánico y beats tropicales sofisticados perfectos para la puesta de sol y open-air.",
+        "image": "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "marcas",
+        "title": "Activaciones de marca",
+        "desc": "Presencia escénica e identidad sonora de alto impacto para conectar marcas globales con su audiencia premium.",
+        "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    "socialProof": {
+      "credibilityLine": "Más de 150+ shows internacionales en venues premium.",
+      "title": "Lo que dicen de Cucha",
+      "testimonials": [
+        {
+          "author": "María & Alejandro",
+          "role": "Boda en Marbella",
+          "text": "La energía de Cucha con las congas y el DJ set fue increíble. Llenó la pista de baile desde el primer minuto y nuestros invitados no pararon de bailar. La mejor decisión para nuestra boda."
+        },
+        {
+          "author": "Jean-Marc P.",
+          "role": "Director de A&B, Rooftop Venue Dubai",
+          "text": "Una presencia escénica y elegancia inigualables. Se adaptó perfectamente al ambiente de nuestro rooftop de lujo en Dubái, creando una atmósfera sofisticada y vibrante."
+        },
+        {
+          "author": "Elena R.",
+          "role": "Brand Activation Manager",
+          "text": "Trabajar con Cucha para el lanzamiento de nuestra marca fue un éxito rotundo. Creó un ritmo y un impacto visual que representaron perfectamente nuestra identidad premium."
+        }
+      ],
+      "btnWhatsapp": "Consultar disponibilidad por WhatsApp"
+    },
+    "bookingProcess": {
+      "title": "Cómo reservar",
+      "steps": [
+        {
+          "step": "Paso 1",
+          "title": "Comparte tu fecha",
+          "desc": "Cuéntanos la fecha, ciudad y venue de tu evento para verificar disponibilidad en el calendario."
+        },
+        {
+          "step": "Paso 2",
+          "title": "Recibe disponibilidad",
+          "desc": "Te enviaremos una propuesta personalizada adaptada a las necesidades y formato de tu show."
+        },
+        {
+          "step": "Paso 3",
+          "title": "Confirma tu booking",
+          "desc": "Cerramos la fecha y nos coordinamos con tu equipo o venue para asegurar que el show sea inolvidable."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "¿En qué ciudades y países estás disponible?",
+        "answer": "Cucha tiene base en Dubái y España, pero está disponible para bookings internacionales en todo el mundo. Nos encargamos de coordinar la logística de viaje y requerimientos técnicos correspondientes."
+      },
+      {
+        "question": "¿Qué incluye el formato del show?",
+        "answer": "El show fusiona DJ set en vivo (música electrónica selecta, house, tropical, afro) con percusión en directo (congas y percusión menor). Cucha realiza el performance de pie, interactuando activamente con el público y generando un impacto tanto visual como sonoro."
+      },
+      {
+        "question": "¿Cómo se coordina el equipamiento técnico?",
+        "answer": "Cucha viaja con sus propios instrumentos de percusión. Para el DJ set y amplificación, coordinamos con el equipo técnico del evento o del venue la ficha técnica de audio y cabina de DJ requerida."
+      },
+      {
+        "question": "¿Se puede solicitar música o géneros específicos?",
+        "answer": "Sí. Antes del evento, agendamos una sesión de alineación para entender el ambiente del evento, definir el tono musical (desde chill/ambient tropical hasta sets de club enérgicos) y acordar posibles peticiones musicales clave."
+      }
+    ],
+    "finalCta": {
+      "headline": "Haz que tu evento se sienta inolvidable.",
+      "text": "Consulta disponibilidad y recibe una propuesta personalizada según tu fecha, ciudad, venue y tipo de experiencia.",
+      "btn": "Reservar por WhatsApp"
+    },
+    "footer": {
+      "privacy": "Política de privacidad",
+      "terms": "Términos y condiciones",
+      "contact": "Contacto",
+      "legal": "© 2026 Cucha Music. Todos los derechos reservados."
+    },
+    "header": {
+      "btnInquire": "Consultar"
+    },
+    "contact": {
+      "btnSubmit": "Enviar consulta"
+    }
+  },
+  "en": {
+    "hero": {
+      "logo": "CUCHA",
+      "tagline": "WEDDINGS · PRIVATE EVENTS · HOTELS · BEACH CLUBS · CORPORATE · DUBAI + INT",
+      "title": "Dance free.",
+      "subtitle": "Live rhythm for nights you won't forget.",
+      "description": "CUCHA blends DJ sets and live percussion to create an elegant, intense, and deeply danceable experience for weddings, private events, hotels, rooftops, brands, and premium celebrations in Dubai and international bookings.",
+      "btnWhatsapp": "Book via WhatsApp",
+      "btnReel": "Watch live experience",
+      "trustStrip": "Weddings · Private Events · Hotels · Beach Clubs · Corporate Events · Dubai + International"
+    },
+    "whyCucha": {
+      "title": "An experience that transforms the atmosphere",
+      "text": "It's not just music. It is a live presence that changes the energy of the space, connects with the audience, and turns every event into an experience with its own identity.",
+      "points": [
+        {
+          "title": "Live energy",
+          "desc": "Organic percussion adds texture, warmth, and an interactive visual dimension that a DJ alone cannot convey."
+        },
+        {
+          "title": "Premium format",
+          "desc": "Tropical and elegant aesthetics designed for high-end venues, luxury beach clubs, and exclusive private events."
+        },
+        {
+          "title": "Reading the crowd",
+          "desc": "Precise dancefloor reading to modulate the rhythm in real time, adapting to the vibe of the guests."
+        },
+        {
+          "title": "Visual & emotional impact",
+          "desc": "The stage performance creates memorable moments that guests photograph, share, and remember."
+        }
+      ]
+    },
+    "experience": {
+      "title": "Rhythm that moves people",
+      "text1": "Cucha Music is a live experience that combines the power of a DJ set with the organic energy of live percussion. The result is a hybrid format that feels elegant, explosive, and designed to lift the dance floor from the very first beat.",
+      "text2": "With congas, live percussion, and a sharp sense of timing, each set adapts to the crowd and the moment, creating an atmosphere that feels vibrant, sophisticated, and full of movement.",
+      "quote": "Music is not only heard: it is felt, shared, and danced.",
+      "btnWhatsapp": "Book via WhatsApp"
+    },
+    "eventTypes": [
+      {
+        "id": "bodas",
+        "title": "Weddings",
+        "desc": "A high-tier celebration with energy at its peak, combining elegance, protocol, and wild dancing.",
+        "image": "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "privados",
+        "title": "Private events",
+        "desc": "Exclusive sets tailored to luxury residences, villas, and intimate celebrations with their own sonic identity.",
+        "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "corporate",
+        "title": "Corporate events",
+        "desc": "The ideal premium and sophisticated touch for brand launches, corporate cocktails, and exclusive galas.",
+        "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "hoteles",
+        "title": "Luxury hotels & venues",
+        "desc": "Vibrant, world-class atmosphere for five-star hotels and the most select clubs.",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "beachclubs",
+        "title": "Beach clubs & rooftops",
+        "desc": "Sets filled with organic rhythms and sophisticated tropical beats perfect for sunset and open-air vibes.",
+        "image": "https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      },
+      {
+        "id": "marcas",
+        "title": "Brand activations",
+        "desc": "High-impact stage presence and sonic identity to connect global brands with their premium audience.",
+        "image": "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+      }
+    ],
+    "socialProof": {
+      "credibilityLine": "Over 150+ international shows in premium venues.",
+      "title": "What they say about Cucha",
+      "testimonials": [
+        {
+          "author": "Maria & Alejandro",
+          "role": "Wedding in Marbella",
+          "text": "Cucha's energy with the live congas and DJ set was unbelievable. He packed the dance floor from the very first minute. The best decision for our wedding."
+        },
+        {
+          "author": "Jean-Marc P.",
+          "role": "F&B Director, Luxury Rooftop Dubai",
+          "text": "Unrivaled stage presence and elegance. He adapted perfectly to the vibe of our luxury rooftop in Dubai, creating a sophisticated and vibrant atmosphere."
+        },
+        {
+          "author": "Elena R.",
+          "role": "Brand Activation Manager",
+          "text": "Partnering with Cucha for our brand launch was a resounding success. He created a rhythmic and visual impact that perfectly represented our premium identity."
+        }
+      ],
+      "btnWhatsapp": "Check availability on WhatsApp"
+    },
+    "bookingProcess": {
+      "title": "How to book",
+      "steps": [
+        {
+          "step": "Step 1",
+          "title": "Share your date",
+          "desc": "Tell us the date, city, and venue of your event to check calendar availability."
+        },
+        {
+          "step": "Step 2",
+          "title": "Get availability",
+          "desc": "We will send you a tailored proposal customized to your event format and requirements."
+        },
+        {
+          "step": "Step 3",
+          "title": "Confirm your booking",
+          "desc": "We lock in the date and coordinate with your team or venue to guarantee an unforgettable show."
+        }
+      ]
+    },
+    "faqs": [
+      {
+        "question": "In which cities and countries are you available?",
+        "answer": "Cucha is based in Dubai and Spain, but is available for international bookings worldwide. We manage and coordinate the travel logistics and corresponding technical riders."
+      },
+      {
+        "question": "What does the show format include?",
+        "answer": "The show fuses live DJ sets (house, tropical, afro house, electronics) with live percussion (congas and hand percussion). Cucha performs live, interacting with the crowd and creating a strong visual and sonic impact."
+      },
+      {
+        "question": "How is the technical equipment coordinated?",
+        "answer": "Cucha travels with his own percussion instruments. For the DJ setup and amplification, we coordinate the required audio and DJ booth technical rider with the event organizer or venue technical staff."
+      },
+      {
+        "question": "Can we request specific music or genres?",
+        "answer": "Yes. Prior to the event, we schedule a briefing session to align on the event vibe, define the musical tone (ranging from sunset tropical chill to high-energy club sets) and integrate any key musical requests."
+      }
+    ],
+    "finalCta": {
+      "headline": "Make your event feel unforgettable.",
+      "text": "Check availability and receive a custom proposal based on your date, city, venue, and type of experience.",
+      "btn": "Book via WhatsApp"
+    },
+    "footer": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions",
+      "contact": "Contact",
+      "legal": "© 2026 Cucha Music. All rights reserved."
+    },
+    "header": {
+      "btnInquire": "Inquire"
+    },
+    "contact": {
+      "btnSubmit": "Send Inquiry"
+    }
+  }
+}

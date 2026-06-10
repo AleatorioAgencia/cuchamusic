@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>CUCHA CMS | Admin Panel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen">
+  
+  <!-- Login Screen -->
+  <div id="login-screen" class="max-w-md mx-auto mt-20 bg-slate-800 p-8 rounded-2xl border border-slate-700 shadow-2xl">
+    <div class="text-center mb-6">
+      <h1 class="text-3xl font-extrabold tracking-wider text-amber-500">CUCHA</h1>
+      <p class="text-slate-400 text-xs mt-1">Visual Content Management System</p>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-bold">Password</label>
+        <input type="password" id="password" class="w-full bg-slate-900 border border-slate-700 p-3 rounded text-white focus:outline-none focus:border-amber-500" placeholder="admin123">
+      </div>
+      <button onclick="login()" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold p-3 rounded transition">Sign In</button>
+    </div>
+  </div>
+
+  <!-- Admin Screen Dashboard -->
+  <div id="admin-screen" class="hidden max-w-6xl mx-auto p-6 md:p-8">
+    <!-- Header -->
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-8 border-b border-slate-800 pb-6 gap-4">
+      <div>
+        <h1 class="text-3xl font-black tracking-wide text-amber-500">CUCHA ADMIN</h1>
+        <p class="text-slate-400 text-xs">Modifica los contenidos de la web en tiempo real.</p>
+      </div>
+      <div class="flex gap-4">
+        <button onclick="saveChanges()" class="bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-bold shadow-lg transition duration-200">
+          Guardar Cambios
+        </button>
+        <button onclick="logout()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-3 rounded-lg text-sm font-semibold transition">
+          Salir
+        </button>
+      </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <div class="flex border-b border-slate-800 mb-8 overflow-x-auto gap-2">
+      <button onclick="switchTab('tab-general')" id="btn-tab-general" class="px-6 py-3 border-b-2 border-amber-500 font-bold text-sm text-amber-500 transition duration-200 whitespace-nowrap">
+        Ajustes Generales
+      </button>
+      <button onclick="switchTab('tab-es')" id="btn-tab-es" class="px-6 py-3 border-b-2 border-transparent font-bold text-sm text-slate-400 hover:text-slate-200 transition duration-200 whitespace-nowrap">
+        Español (ES)
+      </button>
+      <button onclick="switchTab('tab-en')" id="btn-tab-en" class="px-6 py-3 border-b-2 border-transparent font-bold text-sm text-slate-400 hover:text-slate-200 transition duration-200 whitespace-nowrap">
+        English (EN)
+      </button>
+    </div>
+
+    <!-- TAB: GENERAL SETTINGS -->
+    <div id="tab-general" class="space-y-8 tab-content">
+      
+      <!-- Section: Logo Settings -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold text-amber-500 mb-4">Configuración del Logo</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Texto del Logo (Si no hay imagen)</label>
+            <input type="text" id="gen-logo-text" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: CUCHA">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Imagen del Logo</label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-logo-image" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: /uploads/logo.svg">
+              <input type="file" id="upload-logo-image" class="hidden" onchange="handleFileUpload('upload-logo-image', 'gen-logo-image')">
+              <button onclick="document.getElementById('upload-logo-image').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-4 rounded text-xs font-semibold whitespace-nowrap">Subir Logo</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Global Contacts -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold text-amber-500 mb-4">Redes y WhatsApp</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Número WhatsApp (sólo números con código país)</label>
+            <input type="text" id="gen-whatsapp" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: 34600000000">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Enlace Instagram</label>
+            <input type="text" id="gen-instagram" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="https://instagram.com/...">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Enlace YouTube</label>
+            <input type="text" id="gen-youtube" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="https://youtube.com/...">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Section Visibility (Delete/Show) -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold text-amber-500 mb-4">Visibilidad de Secciones (Activar / Desactivar)</h2>
+        <p class="text-xs text-slate-400 mb-4">Desactiva una sección para ocultarla por completo de la página de reservas (funciona como eliminar de forma segura).</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-whyCucha" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Why Cucha</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-experience" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Experience</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-eventTypes" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Show Formats</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-socialProof" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Social Proof</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-gallery" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Live Reel & Gallery</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-bookingProcess" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Booking Process</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-faqs" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">FAQ Accordion</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-contactForm" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Contact Form</span>
+          </label>
+          <label class="flex items-center gap-3 p-3 bg-slate-900 rounded border border-slate-800 cursor-pointer hover:bg-slate-800 transition">
+            <input type="checkbox" id="vis-finalCta" class="w-4 h-4 text-amber-500 rounded focus:ring-amber-500">
+            <span class="text-sm font-semibold">Final CTA Box</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Section: Media Elements -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold text-amber-500 mb-4">Medios y Enlaces de Video</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">URL de Video Reel (Embed para YouTube/Vimeo)</label>
+            <input type="text" id="gen-video-url" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Enlace de Press Kit / Dossier</label>
+            <input type="text" id="gen-press-kit" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: /docs/presskit.pdf">
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Global Images -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold text-amber-500 mb-4">Imágenes Principales</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto Hero principal</label>
+            <div class="flex flex-col gap-2">
+              <input type="text" id="gen-img-hero" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs">
+              <input type="file" id="upload-img-hero" class="hidden" onchange="handleFileUpload('upload-img-hero', 'gen-img-hero')">
+              <button onclick="document.getElementById('upload-img-hero').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-1.5 rounded text-xs font-semibold">Subir Foto Hero</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto Experiencia</label>
+            <div class="flex flex-col gap-2">
+              <input type="text" id="gen-img-experience" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs">
+              <input type="file" id="upload-img-experience" class="hidden" onchange="handleFileUpload('upload-img-experience', 'gen-img-experience')">
+              <button onclick="document.getElementById('upload-img-experience').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-1.5 rounded text-xs font-semibold">Subir Foto Experiencia</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto Bio/Artist</label>
+            <div class="flex flex-col gap-2">
+              <input type="text" id="gen-img-bio" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs">
+              <input type="file" id="upload-img-bio" class="hidden" onchange="handleFileUpload('upload-img-bio', 'gen-img-bio')">
+              <button onclick="document.getElementById('upload-img-bio').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-1.5 rounded text-xs font-semibold">Subir Foto Bio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section: Gallery Grid Images -->
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+        <h2 class="text-xl font-bold text-amber-500 mb-4">Imágenes de la Galería Editorial (4 fotos)</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Foto 1 -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto 1</label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-gallery-img-0" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white text-xs">
+              <input type="file" id="upload-gallery-img-0" class="hidden" onchange="handleFileUpload('upload-gallery-img-0', 'gen-gallery-img-0')">
+              <button onclick="document.getElementById('upload-gallery-img-0').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 rounded text-xs font-semibold whitespace-nowrap">Subir Foto</button>
+            </div>
+          </div>
+          <!-- Foto 2 -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto 2</label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-gallery-img-1" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white text-xs">
+              <input type="file" id="upload-gallery-img-1" class="hidden" onchange="handleFileUpload('upload-gallery-img-1', 'gen-gallery-img-1')">
+              <button onclick="document.getElementById('upload-gallery-img-1').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 rounded text-xs font-semibold whitespace-nowrap">Subir Foto</button>
+            </div>
+          </div>
+          <!-- Foto 3 -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto 3</label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-gallery-img-2" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white text-xs">
+              <input type="file" id="upload-gallery-img-2" class="hidden" onchange="handleFileUpload('upload-gallery-img-2', 'gen-gallery-img-2')">
+              <button onclick="document.getElementById('upload-gallery-img-2').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 rounded text-xs font-semibold whitespace-nowrap">Subir Foto</button>
+            </div>
+          </div>
+          <!-- Foto 4 -->
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto 4</label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-gallery-img-3" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white text-xs">
+              <input type="file" id="upload-gallery-img-3" class="hidden" onchange="handleFileUpload('upload-gallery-img-3', 'gen-gallery-img-3')">
+              <button onclick="document.getElementById('upload-gallery-img-3').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 rounded text-xs font-semibold whitespace-nowrap">Subir Foto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: ESPAÑOL -->
+    <div id="tab-es" class="space-y-8 hidden tab-content">
+      <!-- Injected fields for ES via JS -->
+    </div>
+
+    <!-- TAB: ENGLISH -->
+    <div id="tab-en" class="space-y-8 hidden tab-content">
+      <!-- Injected fields for EN via JS -->
+    </div>
+
+  </div>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

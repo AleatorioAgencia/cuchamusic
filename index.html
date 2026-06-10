@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>CUCHA | Live Percussionist & DJ Set | Dubai & Worldwide</title>
+  <meta name="description" content="CUCHA fusiona DJ set y percusión en vivo para crear una experiencia elegante, intensa y profundamente bailable para eventos de lujo en Dubái e internacionales.">
+  
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            heading: ['Outfit', 'sans-serif'],
+            body: ['DM Sans', 'sans-serif'],
+          },
+          colors: {
+            cucha: {
+              black: '#060608',
+              charcoal: '#0e0e12',
+              gold: '#E2B071',
+              amber: '#C68B59',
+              copper: '#b25d2c',
+              light: '#f5f5f7'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-cucha-black text-cucha-light font-body antialiased relative selection:bg-cucha-gold selection:text-cucha-black">
+
+  <!-- Ambient Glow Blobs -->
+  <div class="glow-spot top-[-10vh] left-[-10vw]"></div>
+  <div class="glow-spot glow-spot-amber top-[80vh] right-[-10vw]"></div>
+  <div class="glow-spot top-[200vh] left-[-20vw]"></div>
+  <div class="glow-spot glow-spot-amber top-[350vh] right-[-10vw]"></div>
+  <div class="glow-spot top-[500vh] left-[-10vw]"></div>
+
+  <!-- Header Navigation -->
+  <nav class="fixed w-full z-50 transition-all duration-500 border-b border-transparent" id="navbar">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 py-5 flex justify-between items-center">
+      <!-- Logo Container -->
+      <a href="#hero" id="logo-container" class="flex items-center gap-3 transition-colors duration-300">
+        <!-- Injected via JS (Text or Image logo) -->
+      </a>
+
+      <!-- Menu links (Desktop) -->
+      <div class="hidden lg:flex items-center gap-8 font-heading text-xs tracking-[0.2em] uppercase">
+        <a href="#why" class="text-gray-400 hover:text-cucha-gold transition-colors duration-300">Why Cucha</a>
+        <a href="#experience" class="text-gray-400 hover:text-cucha-gold transition-colors duration-300">Experience</a>
+        <a href="#events" class="text-gray-400 hover:text-cucha-gold transition-colors duration-300">Events</a>
+        <a href="#gallery" class="text-gray-400 hover:text-cucha-gold transition-colors duration-300">Gallery</a>
+        <a href="#booking" class="text-gray-400 hover:text-cucha-gold transition-colors duration-300">How to Book</a>
+        <a href="#faqs" class="text-gray-400 hover:text-cucha-gold transition-colors duration-300">FAQ</a>
+      </div>
+
+      <!-- Language Selector & CTA -->
+      <div class="flex items-center gap-6">
+        <!-- Language Switcher -->
+        <div class="flex items-center gap-2 font-heading text-xs tracking-wider font-semibold border border-cucha-gold/20 rounded px-3 py-1 bg-cucha-charcoal/40 backdrop-blur-md">
+          <button id="lang-btn-es" class="text-cucha-gold transition-colors duration-300 hover:text-cucha-gold">ES</button>
+          <span class="text-cucha-gold/30">|</span>
+          <button id="lang-btn-en" class="text-gray-500 transition-colors duration-300 hover:text-cucha-light">EN</button>
+        </div>
+
+        <!-- Customizable header button -->
+        <a href="#contact" id="nav-inquire-btn" class="hidden md:inline-block bg-transparent text-cucha-gold border border-cucha-gold/60 font-heading font-semibold text-xs tracking-widest uppercase px-6 py-3 rounded-full hover:bg-cucha-gold hover:text-cucha-black hover:border-cucha-gold transition-all duration-300 shadow-md">
+          <!-- Injected via JS -->
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Section 1: Hero Section -->
+  <header id="hero" class="relative h-screen flex items-center justify-center overflow-hidden bg-cucha-black">
+    <!-- Hero Background Visuals -->
+    <div class="absolute inset-0 z-0 bg-grid-dots">
+      <img id="hero-bg-img" src="/cucha2.jpg" alt="CUCHA Live" class="w-full h-full object-cover opacity-50 scale-105 transition-transform duration-[10000ms] ease-out">
+      <div class="hero-overlay absolute inset-0"></div>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
+      <!-- Trust tag / Subtitle top -->
+      <div class="mb-4 inline-flex items-center gap-2 px-4 py-2 border border-cucha-gold/20 bg-cucha-charcoal/80 backdrop-blur-md rounded-full shadow-lg">
+        <span class="w-2 h-2 rounded-full bg-cucha-gold animate-pulse"></span>
+        <span id="hero-trust-tag" class="text-[10px] md:text-xs font-heading font-medium tracking-[0.2em] uppercase text-cucha-gold">
+          LIVE DJ & PERCUSSION EXPERIENCE
+        </span>
+      </div>
+
+      <!-- Main Logo / Oversized Title -->
+      <h1 id="hero-logo-text" class="font-heading font-black text-6xl md:text-8xl lg:text-9xl tracking-tighter mb-4 text-cucha-light relative">
+        CUCHA
+      </h1>
+
+      <!-- Headline -->
+      <h2 id="hero-headline" class="font-heading text-xl md:text-3xl lg:text-4xl font-extrabold uppercase tracking-wide text-cucha-gold max-w-3xl mb-4 leading-tight">
+        <!-- Injected via JS -->
+      </h2>
+
+      <!-- Subheadline/Description -->
+      <p id="hero-description" class="text-sm md:text-base lg:text-lg text-gray-300 mb-10 max-w-2xl font-light leading-relaxed">
+        <!-- Injected via JS -->
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row items-center gap-4 w-full justify-center">
+        <!-- Primary CTA: WhatsApp -->
+        <a id="hero-cta-primary" href="#" class="w-full sm:w-auto bg-cucha-gold text-cucha-black font-heading font-bold text-sm tracking-widest uppercase px-8 py-5 rounded-full hover:bg-cucha-light transition-all duration-300 shadow-[0_10px_20px_rgba(226,176,113,0.2)] hover:shadow-[0_15px_30px_rgba(255,255,255,0.2)] transform hover:-translate-y-1">
+          <!-- Injected via JS -->
+        </a>
+
+        <!-- Secondary CTA: Watch Reel -->
+        <a id="hero-cta-secondary" href="#gallery" class="w-full sm:w-auto bg-cucha-charcoal/60 backdrop-blur-md text-cucha-light border border-cucha-gold/30 font-heading font-semibold text-sm tracking-widest uppercase px-8 py-5 rounded-full hover:bg-cucha-gold/10 hover:border-cucha-gold transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-3">
+          <svg class="w-4 h-4 text-cucha-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          <span id="hero-btn-secondary-text">Ver experiencia en vivo</span>
+        </a>
+      </div>
+
+      <!-- Trust Strip (Desktop only bottom) -->
+      <div class="absolute bottom-8 left-0 w-full px-6 hidden md:block">
+        <div id="hero-trust-strip" class="text-[10px] tracking-[0.3em] font-heading uppercase text-gray-500 border-t border-cucha-gold/10 pt-6 max-w-5xl mx-auto flex justify-between">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Slanted Bottom Overlay for Section Transition -->
+    <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-cucha-black to-transparent z-10 pointer-events-none"></div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="space-y-32 md:space-y-48 pb-32">
+
+    <!-- Section 2: Why Cucha -->
+    <section id="why" class="max-w-7xl mx-auto px-6 md:px-12 pt-16 relative z-10 scroll-reveal">
+      <!-- Background giant overlay letters -->
+      <div class="absolute right-0 top-0 text-[18vw] font-heading font-black text-outline-thin leading-none pointer-events-none select-none opacity-20">
+        LIVE
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <!-- Editorial Left: Huge typography -->
+        <div class="lg:col-span-5">
+          <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">01 // WHY CUCHA</span>
+          <h2 id="why-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase leading-[1.1] text-cucha-light">
+            <!-- Injected via JS -->
+          </h2>
+          <div class="h-1 w-20 bg-cucha-gold my-8"></div>
+          <p id="why-text" class="text-gray-400 text-lg font-light leading-relaxed">
+            <!-- Injected via JS -->
+          </p>
+          
+          <div class="mt-10">
+            <a href="#contact" class="inline-flex items-center gap-3 text-cucha-gold hover:text-cucha-light font-heading text-xs tracking-widest uppercase transition-colors duration-300">
+              <span data-lang-show="es">Consultar disponibilidad ahora</span>
+              <span data-lang-show="en">Check availability now</span>
+              <span>→</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: Layered content cards -->
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6" id="why-points-grid">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Experience -->
+    <section id="experience" class="relative z-10 py-16 scroll-reveal bg-cucha-charcoal/40 border-y border-cucha-gold/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          <!-- Image side with custom mask/design -->
+          <div class="lg:col-span-5 relative group">
+            <div class="absolute inset-0 bg-cucha-gold/10 rounded-2xl transform translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+            <div class="relative overflow-hidden rounded-2xl aspect-[4/5] border border-cucha-gold/20 shadow-2xl">
+              <img id="experience-img" src="/cucha2.jpg" alt="CUCHA Performance" class="w-full h-full object-cover filter contrast-[1.1] brightness-[0.8] transition-transform duration-1000 group-hover:scale-105">
+              <div class="absolute inset-0 bg-gradient-to-t from-cucha-black/80 via-transparent to-transparent"></div>
+            </div>
+            <!-- Interactive badge -->
+            <div class="absolute bottom-6 left-6 right-6 p-4 glass-panel rounded-xl text-center">
+              <p class="font-heading font-bold text-sm tracking-[0.2em] uppercase text-cucha-gold mb-1">LIVE SHOW DUBAI</p>
+              <p class="text-[10px] text-gray-400">Available globally for booking</p>
+            </div>
+          </div>
+
+          <!-- Text content side -->
+          <div class="lg:col-span-7 space-y-8">
+            <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block">02 // THE EXPERIENCE</span>
+            <h3 id="experience-title" class="font-heading text-3xl md:text-4xl lg:text-5xl font-black uppercase text-cucha-light">
+              <!-- Injected via JS -->
+            </h3>
+            
+            <div class="space-y-6 text-gray-300 font-light text-base md:text-lg leading-relaxed">
+              <p id="experience-text1"><!-- Injected via JS --></p>
+              <p id="experience-text2"><!-- Injected via JS --></p>
+            </div>
+
+            <!-- Beautiful Blockquote Highlight -->
+            <div class="border-l-2 border-cucha-gold pl-6 py-2 my-8 bg-cucha-gold/5 rounded-r-lg">
+              <blockquote id="experience-quote" class="font-heading italic text-xl md:text-2xl text-cucha-gold font-medium leading-normal">
+                <!-- Injected via JS -->
+              </blockquote>
+            </div>
+
+            <div class="flex flex-wrap gap-4 pt-4">
+              <!-- Customizable Experience button -->
+              <a href="#" id="exp-wa-btn" class="btn-whatsapp-dynamic bg-cucha-gold text-cucha-black px-6 py-4 rounded-full font-heading font-bold text-xs tracking-widest uppercase hover:bg-cucha-light transition-all duration-300 shadow-md">
+                <!-- Injected via JS -->
+              </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Event Types -->
+    <section id="events" class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 scroll-reveal">
+      <!-- Grid header -->
+      <div class="mb-16 text-center md:text-left">
+        <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">03 // SHOW FORMATS</span>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase text-cucha-light">
+          <span data-lang-show="es">Formatos de Show & Eventos</span>
+          <span data-lang-show="en">Show Formats & Events</span>
+        </h2>
+        <p class="text-gray-400 mt-4 max-w-xl font-light">
+          <span data-lang-show="es">Adaptamos la intensidad y la percusión al ambiente de tu evento. Pasa el cursor para visualizar cada formato.</span>
+          <span data-lang-show="en">We adapt the performance intensity and percussion to your event vibe. Hover to view each format.</span>
+        </p>
+      </div>
+
+      <!-- Interactive Services Menu Layout -->
+      <div class="services-interactive-container rounded-2xl grid lg:grid-cols-12 overflow-hidden shadow-2xl relative">
+        <!-- Background images crossfader (Injected via JS) -->
+        <div id="service-bgs-container" class="absolute inset-0 z-0"></div>
+
+        <!-- Left half: Interactive list -->
+        <div class="lg:col-span-6 z-10 bg-cucha-black/75 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none border-r border-cucha-gold/10">
+          <div class="divide-y divide-cucha-gold/10" id="services-nav-list">
+            <!-- Items injected via JS -->
+          </div>
+        </div>
+
+        <!-- Right half: Visual detail card (Desktop only) -->
+        <div class="lg:col-span-6 hidden lg:flex flex-col justify-end p-12 z-10 relative pointer-events-none min-h-[450px]">
+          <div class="glass-panel p-8 rounded-xl relative max-w-md ml-auto">
+            <h4 id="service-detail-title" class="font-heading font-black text-2xl text-cucha-gold uppercase mb-3"></h4>
+            <p id="service-detail-desc" class="text-gray-300 text-sm font-light leading-relaxed mb-6"></p>
+            <div class="inline-flex items-center gap-2 text-cucha-gold font-heading text-xs tracking-wider uppercase">
+              <span data-lang-show="es">Click para cotizar este formato</span>
+              <span data-lang-show="en">Click to quote this format</span>
+              <span>→</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Social Proof & Client Logos -->
+    <section id="social-proof" class="relative z-10 py-16 scroll-reveal bg-cucha-charcoal/20">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center mb-16">
+          <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">04 // CREDIBILITY</span>
+          <h2 id="social-proof-line" class="font-heading text-3xl md:text-4xl lg:text-5xl font-black uppercase text-cucha-light">
+            <!-- Injected via JS -->
+          </h2>
+          <div class="h-[1px] w-40 bg-cucha-gold/30 mx-auto mt-6"></div>
+        </div>
+
+        <!-- Testimonials Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-20" id="testimonials-container">
+          <!-- Injected via JS -->
+        </div>
+
+        <!-- Luxury Brands Logo Strip -->
+        <div class="border-t border-b border-cucha-gold/10 py-10 bg-cucha-charcoal/40 backdrop-blur-md rounded-xl">
+          <p class="text-center font-heading text-[10px] tracking-[0.3em] uppercase text-gray-500 mb-8">Featured in exclusive venues</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
+            <div class="font-heading font-black text-lg md:text-xl tracking-widest text-outline text-center">OMNIA DUBAI</div>
+            <div class="font-heading font-black text-lg md:text-xl tracking-widest text-cucha-light/40 hover:text-cucha-gold transition-colors text-center">NIKKI BEACH</div>
+            <div class="font-heading font-bold text-lg md:text-xl tracking-widest text-center">W HOTELS</div>
+            <div class="font-heading font-black text-lg md:text-xl tracking-widest text-outline text-center">ROBERTO'S DXB</div>
+          </div>
+        </div>
+
+        <!-- Repeated Booking CTA with customizable text -->
+        <div class="text-center mt-16">
+          <a href="#" id="proof-wa-btn" class="btn-whatsapp-dynamic inline-flex items-center gap-4 bg-cucha-gold text-cucha-black font-heading font-bold text-xs tracking-widest uppercase px-8 py-5 rounded-full hover:bg-cucha-light transition-all duration-300 shadow-lg transform hover:-translate-y-1">
+            <!-- Injected via JS -->
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Gallery / Reel -->
+    <section id="gallery" class="max-w-7xl mx-auto px-6 md:px-12 relative z-10 scroll-reveal">
+      <div class="text-center mb-16">
+        <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">05 // LIVE REEL</span>
+        <h2 class="font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase text-cucha-light">
+          <span data-lang-show="es">Experiencia en Vivo</span>
+          <span data-lang-show="en">Live Experience</span>
+        </h2>
+        <p class="text-gray-400 mt-4 max-w-xl mx-auto font-light">
+          <span data-lang-show="es">La fusión vibrante de electrónica y ritmo orgánico, capturada en directo.</span>
+          <span data-lang-show="en">The vibrant fusion of electronics and organic rhythm, captured live.</span>
+        </p>
+      </div>
+
+      <!-- Main Video Reel Component -->
+      <div class="relative rounded-2xl overflow-hidden aspect-video border border-cucha-gold/20 shadow-2xl mb-12 group cursor-pointer max-w-5xl mx-auto" id="video-trigger">
+        <img src="/cucha2.jpg" alt="Watch Cucha Reel" class="w-full h-full object-cover filter brightness-[0.7] transition-transform duration-1000 group-hover:scale-105">
+        <div class="absolute inset-0 bg-gradient-to-t from-cucha-black via-transparent to-transparent"></div>
+        
+        <!-- Big Video Glow Button -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="video-glow-btn w-20 h-20 md:w-24 md:h-24 rounded-full bg-cucha-black/80 border border-cucha-gold flex items-center justify-center text-cucha-gold">
+            <svg class="w-8 h-8 md:w-10 md:h-10 ml-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-left">
+          <span class="text-[10px] tracking-[0.3em] font-heading text-cucha-gold uppercase block mb-1">PROMOTION REEL</span>
+          <h3 class="font-heading font-black text-xl md:text-3xl text-cucha-light uppercase">CUCHA - DJ & PERCUSSION SHOW 2026</h3>
+        </div>
+      </div>
+
+      <!-- Customizable Gallery Images Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-16">
+        <div class="rounded-xl overflow-hidden aspect-[3/4] border border-cucha-gold/10 relative group">
+          <img id="gallery-img-0" src="" alt="Sunset performance" class="w-full h-full object-cover filter contrast-[1.1] brightness-[0.8] transition-all duration-700 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 font-heading text-[10px] tracking-widest text-cucha-gold uppercase opacity-0 group-hover:opacity-100 transition-opacity">SUNSET ROOFTOP</div>
+        </div>
+        <div class="rounded-xl overflow-hidden aspect-[3/4] border border-cucha-gold/10 relative group translate-y-4 md:translate-y-8">
+          <img id="gallery-img-1" src="" alt="Live Congas" class="w-full h-full object-cover filter contrast-[1.1] brightness-[0.8] transition-all duration-700 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 font-heading text-[10px] tracking-widest text-cucha-gold uppercase opacity-0 group-hover:opacity-100 transition-opacity">PERCUSSION DETAIL</div>
+        </div>
+        <div class="rounded-xl overflow-hidden aspect-[3/4] border border-cucha-gold/10 relative group">
+          <img id="gallery-img-2" src="" alt="Nightclub set" class="w-full h-full object-cover filter contrast-[1.1] brightness-[0.8] transition-all duration-700 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 font-heading text-[10px] tracking-widest text-cucha-gold uppercase opacity-0 group-hover:opacity-100 transition-opacity">EXCLUSIVE CLUB DXB</div>
+        </div>
+        <div class="rounded-xl overflow-hidden aspect-[3/4] border border-cucha-gold/10 relative group translate-y-4 md:translate-y-8">
+          <img id="gallery-img-3" src="" alt="Crowd energy" class="w-full h-full object-cover filter contrast-[1.1] brightness-[0.8] transition-all duration-700 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 font-heading text-[10px] tracking-widest text-cucha-gold uppercase opacity-0 group-hover:opacity-100 transition-opacity">MEMORABLE CROWD</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Booking Process -->
+    <section id="booking" class="max-w-7xl mx-auto px-6 md:px-12 pt-16 relative z-10 scroll-reveal">
+      <div class="text-center mb-20">
+        <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">06 // PROCESS</span>
+        <h2 id="booking-title" class="font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase text-cucha-light">
+          <!-- Injected via JS -->
+        </h2>
+        <div class="h-1 w-20 bg-cucha-gold mx-auto mt-6"></div>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8" id="booking-steps-grid">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 8: FAQ -->
+    <section id="faqs" class="max-w-4xl mx-auto px-6 relative z-10 scroll-reveal">
+      <div class="text-center mb-16">
+        <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">07 // ACCORDION FAQ</span>
+        <h2 class="font-heading text-3xl md:text-4xl lg:text-5xl font-black uppercase text-cucha-light">
+          <span data-lang-show="es">Preguntas Frecuentes</span>
+          <span data-lang-show="en">Frequently Asked Questions</span>
+        </h2>
+      </div>
+
+      <!-- FAQ Accordion Container -->
+      <div class="space-y-4" id="faq-accordion-container">
+        <!-- Injected via JS -->
+      </div>
+    </section>
+
+    <!-- Section 9: Booking Inquiry Form & Contact -->
+    <section id="contact" class="max-w-4xl mx-auto px-6 relative z-10 scroll-reveal">
+      <div class="glass-panel p-8 md:p-12 rounded-2xl relative overflow-hidden">
+        <!-- background accent -->
+        <div class="absolute right-[-20%] bottom-[-20%] w-80 h-80 rounded-full bg-cucha-gold/5 blur-3xl pointer-events-none"></div>
+
+        <div class="text-center mb-12">
+          <span class="text-cucha-gold font-heading text-xs tracking-[0.3em] uppercase block mb-3">08 // BOOK A DATE</span>
+          <h2 class="font-heading text-3xl md:text-4xl font-black uppercase text-cucha-light">
+            <span data-lang-show="es">Reserva tu fecha</span>
+            <span data-lang-show="en">Book your date</span>
+          </h2>
+          <p class="text-gray-400 mt-3 text-sm font-light max-w-xl mx-auto">
+            <span data-lang-show="es">Cuéntanos sobre tu evento: fecha, ciudad, venue y tipo de experiencia. Te responderemos con disponibilidad y detalles de booking.</span>
+            <span data-lang-show="en">Tell us about your event: date, city, venue, and the kind of experience you’re looking for. We’ll get back to you with availability and details.</span>
+          </p>
+        </div>
+
+        <!-- Booking Form -->
+        <form id="booking-form" class="space-y-8">
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="flex flex-col">
+              <label class="text-xs uppercase tracking-wider font-heading font-semibold text-cucha-gold mb-1">
+                <span data-lang-show="es">Nombre completo</span>
+                <span data-lang-show="en">Full Name</span>
+              </label>
+              <input type="text" id="form-name" required class="form-input-lux">
+            </div>
+            <div class="flex flex-col">
+              <label class="text-xs uppercase tracking-wider font-heading font-semibold text-cucha-gold mb-1">
+                <span data-lang-show="es">Correo electrónico</span>
+                <span data-lang-show="en">Email Address</span>
+              </label>
+              <input type="email" id="form-email" required class="form-input-lux">
+            </div>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="flex flex-col">
+              <label class="text-xs uppercase tracking-wider font-heading font-semibold text-cucha-gold mb-1">
+                <span data-lang-show="es">Fecha del evento</span>
+                <span data-lang-show="en">Event Date</span>
+              </label>
+              <input type="date" id="form-date" required class="form-input-lux text-gray-400">
+            </div>
+            <div class="flex flex-col">
+              <label class="text-xs uppercase tracking-wider font-heading font-semibold text-cucha-gold mb-1">
+                <span data-lang-show="es">Ciudad / País</span>
+                <span data-lang-show="en">City / Country</span>
+              </label>
+              <input type="text" id="form-location" required placeholder="Dubai, Marbella..." class="form-input-lux">
+            </div>
+            <div class="flex flex-col">
+              <label class="text-xs uppercase tracking-wider font-heading font-semibold text-cucha-gold mb-1">
+                <span data-lang-show="es">Tipo de evento</span>
+                <span data-lang-show="en">Event Type</span>
+              </label>
+              <select id="form-event-type" class="form-input-lux bg-cucha-charcoal">
+                <option value="Boda" data-lang-show="es">Boda</option>
+                <option value="Wedding" data-lang-show="en">Wedding</option>
+                <option value="Corporativo" data-lang-show="es">Evento Corporativo</option>
+                <option value="Corporate" data-lang-show="en">Corporate Event</option>
+                <option value="Club" data-lang-show="es">Beach Club / Rooftop</option>
+                <option value="Club" data-lang-show="en">Beach Club / Rooftop</option>
+                <option value="Privado" data-lang-show="es">Fiesta Privada</option>
+                <option value="Private" data-lang-show="en">Private Party</option>
+                <option value="Marca" data-lang-show="es">Activación de Marca</option>
+                <option value="Brand" data-lang-show="en">Brand Activation</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="flex flex-col">
+            <label class="text-xs uppercase tracking-wider font-heading font-semibold text-cucha-gold mb-1">
+              <span data-lang-show="es">Mensaje / Detalles adicionales</span>
+              <span data-lang-show="en">Message / Additional details</span>
+            </label>
+            <textarea id="form-message" rows="4" placeholder="..." class="form-input-lux"></textarea>
+          </div>
+
+          <!-- Customizable Submit button -->
+          <div class="pt-4 text-center">
+            <button type="submit" id="form-submit-btn" class="bg-cucha-gold text-cucha-black font-heading font-bold text-xs tracking-widest uppercase px-10 py-5 rounded-full hover:bg-cucha-light transition-all duration-300 shadow-lg transform hover:-translate-y-1 w-full sm:w-auto">
+              <!-- Injected via JS -->
+            </button>
+          </div>
+        </form>
+
+        <!-- Form Success State -->
+        <div id="form-success" class="hidden text-center py-10 space-y-6">
+          <div class="w-16 h-16 rounded-full bg-green-500/10 border border-green-500 flex items-center justify-center mx-auto text-green-500 text-3xl font-bold">
+            ✓
+          </div>
+          <h3 class="font-heading font-black text-2xl text-cucha-light uppercase">
+            <span data-lang-show="es">¡Consulta Enviada!</span>
+            <span data-lang-show="en">Inquiry Sent!</span>
+          </h3>
+          <p class="text-gray-400 text-sm font-light max-w-md mx-auto">
+            <span data-lang-show="es">Tu consulta ha sido procesada. Te estamos redirigiendo a WhatsApp para sincronizar detalles directamente con el artista.</span>
+            <span data-lang-show="en">Your inquiry has been processed. We are redirecting you to WhatsApp to synchronize details directly with the artist.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Final CTA -->
+    <section id="final-cta" class="max-w-5xl mx-auto px-6 relative z-10 scroll-reveal text-center py-12">
+      <div class="relative rounded-2xl overflow-hidden bg-cucha-charcoal border border-cucha-gold/20 py-16 px-6 md:px-16 shadow-2xl">
+        <!-- Background light spot -->
+        <div class="absolute inset-0 bg-grid-dots opacity-20 z-0"></div>
+        <div class="absolute top-[50%] left-[50%] transform translate-x-[-50%] translate-y-[-50%] w-96 h-96 bg-cucha-amber/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+
+        <div class="relative z-10 max-w-2xl mx-auto space-y-6">
+          <h2 id="final-cta-headline" class="font-heading text-4xl md:text-5xl lg:text-6xl font-black uppercase text-cucha-light leading-tight">
+            <!-- Injected via JS -->
+          </h2>
+          <p id="final-cta-text" class="text-gray-300 font-light text-base md:text-lg">
+            <!-- Injected via JS -->
+          </p>
+          <div class="pt-6">
+            <!-- Customizable final WA button -->
+            <a href="#" id="final-wa-btn" class="btn-whatsapp-dynamic inline-flex items-center gap-4 bg-cucha-gold text-cucha-black font-heading font-bold text-xs tracking-widest uppercase px-8 py-5 rounded-full hover:bg-cucha-light transition-all duration-300 shadow-xl transform hover:-translate-y-1">
+              <!-- Injected via JS -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Video Reel Modal Lightbox -->
+  <div id="video-modal" class="fixed inset-0 z-50 bg-cucha-black/95 backdrop-blur-md hidden items-center justify-center p-4">
+    <button id="video-modal-close" class="absolute top-6 right-6 text-cucha-light hover:text-cucha-gold text-3xl font-heading focus:outline-none">&times;</button>
+    <div class="w-full max-w-4xl aspect-video rounded-xl overflow-hidden border border-cucha-gold/20 shadow-2xl bg-black">
+      <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="border-t border-cucha-gold/10 bg-cucha-black py-16 relative z-10">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 grid gap-12 md:grid-cols-3 items-center">
+      
+      <!-- Brand column (Text or Image logo) -->
+      <div class="text-center md:text-left space-y-4">
+        <a href="#hero" id="footer-logo-container" class="font-heading font-extrabold text-2xl tracking-widest text-cucha-light hover:text-cucha-gold transition-colors duration-300 block">
+          <!-- Injected via JS -->
+        </a>
+        <p class="text-gray-500 text-xs font-light">
+          Available in Dubai & bookings internationally.
+        </p>
+      </div>
+
+      <!-- Links Column -->
+      <div class="flex justify-center gap-8 text-xs font-heading tracking-widest uppercase font-semibold">
+        <a id="footer-link-privacy" href="#" class="text-gray-400 hover:text-cucha-gold transition-colors"></a>
+        <a id="footer-link-terms" href="#" class="text-gray-400 hover:text-cucha-gold transition-colors"></a>
+        <a id="footer-link-contact" href="#contact" class="text-gray-400 hover:text-cucha-gold transition-colors"></a>
+      </div>
+
+      <!-- Social and legal Column -->
+      <div class="text-center md:text-right space-y-4">
+        <div class="flex justify-center md:justify-end gap-6 text-gray-400">
+          <a id="footer-instagram" href="#" target="_blank" class="hover:text-cucha-gold transition-colors">Instagram</a>
+          <a id="footer-youtube" href="#" target="_blank" class="hover:text-cucha-gold transition-colors">YouTube</a>
+        </div>
+        <p id="footer-legal" class="text-[10px] text-gray-600 font-light">
+          <!-- Injected via JS -->
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Floating WhatsApp Widget (concierge style) -->
+  <a id="floating-wa" href="#" target="_blank" class="sticky-wa-btn fixed bottom-6 right-6 z-50 text-white pl-4 pr-6 py-4 rounded-full shadow-2xl flex items-center gap-3 opacity-0 pointer-events-none transform translate-y-4 transition-all duration-500 hover:scale-105">
+    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 3.825 0 6.938 3.112 6.938 6.937 0 3.825-3.113 6.938-6.938 6.938z"/>
+    </svg>
+    <div class="text-left leading-none">
+      <span class="text-[9px] uppercase tracking-wider font-semibold opacity-70 block font-heading">Online Concierge</span>
+      <span class="text-xs font-bold font-heading">
+        <span data-lang-show="es">Reservar Fecha</span>
+        <span data-lang-show="en">Book Show</span>
+      </span>
+    </div>
+  </a>
+
+  <!-- Frontend Logic -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
