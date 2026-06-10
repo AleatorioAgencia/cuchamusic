@@ -99,6 +99,24 @@ function initApp(data, lang) {
   // Run initial render
   updateLangUI(lang);
 
+  // HELPER: Convert normal YouTube/Vimeo URLs to embed compatible format
+  function convertToEmbedUrl(url) {
+    if (!url) return '';
+    url = url.trim();
+    if (url.includes('youtube.com/embed/') || url.includes('player.vimeo.com/video/')) {
+      return url;
+    }
+    const ytWatchMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s?]+)/);
+    if (ytWatchMatch && ytWatchMatch[1]) {
+      return `https://www.youtube.com/embed/${ytWatchMatch[1]}`;
+    }
+    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+    if (vimeoMatch && vimeoMatch[1]) {
+      return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+    }
+    return url;
+  }
+
   // Setup Video Lightbox Modal
   const videoTrigger = document.getElementById('video-trigger');
   const videoModal = document.getElementById('video-modal');
@@ -107,7 +125,8 @@ function initApp(data, lang) {
 
   videoTrigger.addEventListener('click', () => {
     // Determine video embed link. Default to a premium nightlife/percussion feel video or customizable
-    const embedUrl = data.general?.heroVideoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+    const rawUrl = data.general?.heroVideoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
+    const embedUrl = convertToEmbedUrl(rawUrl);
     videoIframe.src = embedUrl;
     videoModal.classList.remove('hidden');
     videoModal.classList.add('flex');
