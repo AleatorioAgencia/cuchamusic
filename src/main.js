@@ -14,17 +14,31 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Set initial attribute on document
   document.documentElement.setAttribute('data-lang', currentLang);
 
-  // Fetch content from Express API
+  // Fetch content (try Express API first, fallback to static JSON file)
   try {
-    const res = await fetch('/api/content');
+    let res = await fetch('/api/content');
+    if (!res.ok) {
+      res = await fetch('/data.json');
+    }
     if (res.ok) {
       appData = await res.json();
       initApp(appData, currentLang);
     } else {
-      console.error('Failed to fetch content from server');
+      throw new Error('Failed to fetch content from API or static fallback');
     }
   } catch (error) {
-    console.error('Error fetching content:', error);
+    console.warn('API fetch failed, trying static /data.json fallback...', error);
+    try {
+      const fallbackRes = await fetch('/data.json');
+      if (fallbackRes.ok) {
+        appData = await fallbackRes.json();
+        initApp(appData, currentLang);
+      } else {
+        console.error('Failed to load static /data.json fallback');
+      }
+    } catch (fallbackError) {
+      console.error('Error loading fallback content:', fallbackError);
+    }
   }
 
   // Setup Scroll Reveal Observer

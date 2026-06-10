@@ -6,7 +6,10 @@ async function login() {
   token = 'Bearer ' + pwd;
 
   try {
-    const res = await fetch('/api/content');
+    let res = await fetch('/api/content');
+    if (!res.ok) {
+      res = await fetch('/data.json');
+    }
     if (res.ok) {
       appData = await res.json();
       document.getElementById('login-screen').classList.add('hidden');
