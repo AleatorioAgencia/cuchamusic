@@ -117,28 +117,12 @@ function initApp(data, lang) {
     return url;
   }
 
-  // Setup Video Lightbox Modal
-  const videoTrigger = document.getElementById('video-trigger');
-  const videoModal = document.getElementById('video-modal');
-  const videoClose = document.getElementById('video-modal-close');
-  const videoIframe = document.getElementById('video-iframe');
-
-  videoTrigger.addEventListener('click', () => {
-    // Determine video embed link. Default to a premium nightlife/percussion feel video or customizable
-    const rawUrl = data.general?.heroVideoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1";
-    const embedUrl = convertToEmbedUrl(rawUrl);
-    videoIframe.src = embedUrl;
-    videoModal.classList.remove('hidden');
-    videoModal.classList.add('flex');
-    document.body.style.overflow = 'hidden'; // Lock scroll
-  });
-
-  videoClose.addEventListener('click', () => {
-    videoIframe.src = "";
-    videoModal.classList.add('hidden');
-    videoModal.classList.remove('flex');
-    document.body.style.overflow = ''; // Unlock scroll
-  });
+  // Setup Video Embed Direct
+  const videoFrame = document.getElementById('video-frame');
+  if (videoFrame) {
+    const rawUrl = data.general?.heroVideoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ";
+    videoFrame.src = convertToEmbedUrl(rawUrl);
+  }
 
   // Setup Form Submission & WhatsApp redirection
   const form = document.getElementById('booking-form');

@@ -316,24 +316,9 @@
         </p>
       </div>
 
-      <!-- Main Video Reel Component -->
-      <div class="relative rounded-2xl overflow-hidden aspect-video border border-cucha-gold/20 shadow-2xl mb-12 group cursor-pointer max-w-5xl mx-auto" id="video-trigger">
-        <img src="/cucha2.jpg" alt="Watch Cucha Reel" class="w-full h-full object-cover filter brightness-[0.7] transition-transform duration-1000 group-hover:scale-105">
-        <div class="absolute inset-0 bg-gradient-to-t from-cucha-black via-transparent to-transparent"></div>
-        
-        <!-- Big Video Glow Button -->
-        <div class="absolute inset-0 flex items-center justify-center">
-          <div class="video-glow-btn w-20 h-20 md:w-24 md:h-24 rounded-full bg-cucha-black/80 border border-cucha-gold flex items-center justify-center text-cucha-gold">
-            <svg class="w-8 h-8 md:w-10 md:h-10 ml-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z"/>
-            </svg>
-          </div>
-        </div>
-
-        <div class="absolute bottom-6 left-6 md:bottom-10 md:left-10 text-left">
-          <span class="text-[10px] tracking-[0.3em] font-heading text-cucha-gold uppercase block mb-1">PROMOTION REEL</span>
-          <h3 class="font-heading font-black text-xl md:text-3xl text-cucha-light uppercase">CUCHA - DJ & PERCUSSION SHOW 2026</h3>
-        </div>
+      <!-- Main Video Reel Component (Embedded Direct) -->
+      <div class="relative rounded-2xl overflow-hidden aspect-video border border-cucha-gold/20 shadow-2xl mb-12 max-w-5xl mx-auto bg-black">
+        <iframe id="video-frame" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
 
       <!-- Customizable Gallery Images Grid -->
@@ -519,13 +504,7 @@
 
   </main>
 
-  <!-- Video Reel Modal Lightbox -->
-  <div id="video-modal" class="fixed inset-0 z-50 bg-cucha-black/95 backdrop-blur-md hidden items-center justify-center p-4">
-    <button id="video-modal-close" class="absolute top-6 right-6 text-cucha-light hover:text-cucha-gold text-3xl font-heading focus:outline-none">&times;</button>
-    <div class="w-full max-w-4xl aspect-video rounded-xl overflow-hidden border border-cucha-gold/20 shadow-2xl bg-black">
-      <iframe id="video-iframe" class="w-full h-full" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-  </div>
+
 
   <!-- Footer Section -->
   <footer class="border-t border-cucha-gold/10 bg-cucha-black py-16 relative z-10">
