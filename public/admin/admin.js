@@ -1,5 +1,6 @@
 let appData = {};
 let token = '';
+let localVideoUrls = [];
 
 async function login() {
   const pwd = document.getElementById('password').value;
@@ -21,7 +22,9 @@ async function login() {
       document.getElementById('gen-whatsapp').value = appData.general?.whatsapp || '';
       document.getElementById('gen-instagram').value = appData.general?.instagram || '';
       document.getElementById('gen-youtube').value = appData.general?.youtube || '';
-      document.getElementById('gen-video-url').value = appData.general?.heroVideoUrl || '';
+      const rawVids = appData.general?.videoUrls || (appData.general?.heroVideoUrl ? [appData.general.heroVideoUrl] : []);
+      localVideoUrls = rawVids.filter(Boolean);
+      renderVideosInputs();
       document.getElementById('gen-press-kit').value = appData.general?.pressKitUrl || '';
       
       if (appData.general?.heroImages && appData.general.heroImages.length > 0) {
@@ -121,6 +124,37 @@ window.handleFileUpload = async (fileInputId, targetInputId) => {
   };
   
   reader.readAsDataURL(file);
+};
+
+// HELPER: Dynamic inputs for videos
+function renderVideosInputs() {
+  const container = document.getElementById('admin-videos-list');
+  if (!container) return;
+  container.innerHTML = '';
+
+  if (localVideoUrls.length === 0) {
+    container.innerHTML = `<p class="text-xs text-slate-500 italic">No hay videos agregados. Haz clic en '+ Agregar Video' para añadir uno.</p>`;
+    return;
+  }
+
+  localVideoUrls.forEach((url, idx) => {
+    container.innerHTML += `
+      <div class="flex items-center gap-2">
+        <input type="text" id="gen-video-url-${idx}" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white" value="${url}" placeholder="Ej: https://youtu.be/... o enlace embed" onchange="localVideoUrls[${idx}] = this.value">
+        <button onclick="removeVideoUrlInput(${idx})" class="bg-rose-600 hover:bg-rose-700 text-white font-bold px-3 py-2.5 rounded text-xs whitespace-nowrap">Eliminar</button>
+      </div>
+    `;
+  });
+}
+
+window.addVideoUrlInput = () => {
+  localVideoUrls.push('');
+  renderVideosInputs();
+};
+
+window.removeVideoUrlInput = (idx) => {
+  localVideoUrls.splice(idx, 1);
+  renderVideosInputs();
 };
 
 // HELPER: Convert normal YouTube/Vimeo URLs to embed compatible format
@@ -546,9 +580,16 @@ window.saveChanges = async () => {
   appData.general.instagram = document.getElementById('gen-instagram').value;
   appData.general.youtube = document.getElementById('gen-youtube').value;
   
-  // Convert video URL to embed format automatically before saving
-  const rawVideoUrl = document.getElementById('gen-video-url').value;
-  appData.general.heroVideoUrl = convertToEmbedUrl(rawVideoUrl);
+  // Save video URLs array
+  const finalVideoUrls = [];
+  for (let i = 0; i < localVideoUrls.length; i++) {
+    const inputEl = document.getElementById(`gen-video-url-${i}`);
+    if (inputEl && inputEl.value.trim()) {
+      finalVideoUrls.push(convertToEmbedUrl(inputEl.value.trim()));
+    }
+  }
+  appData.general.videoUrls = finalVideoUrls;
+  appData.general.heroVideoUrl = finalVideoUrls[0] || '';
   
   appData.general.pressKitUrl = document.getElementById('gen-press-kit').value;
   

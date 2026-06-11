@@ -131,11 +131,19 @@ function initApp(data, lang) {
     return url;
   }
 
-  // Setup Video Embed Direct
-  const videoFrame = document.getElementById('video-frame');
-  if (videoFrame) {
-    const rawUrl = data.general?.heroVideoUrl || "https://www.youtube.com/embed/dQw4w9WgXcQ";
-    videoFrame.src = convertToEmbedUrl(rawUrl);
+  // Setup Video Embed Direct (Multiple Videos)
+  const videoContainer = document.getElementById('video-container');
+  if (videoContainer) {
+    const videoUrls = data.general?.videoUrls || (data.general?.heroVideoUrl ? [data.general.heroVideoUrl] : ["https://www.youtube.com/embed/dQw4w9WgXcQ"]);
+    videoContainer.innerHTML = videoUrls.map(url => {
+      const embedUrl = convertToEmbedUrl(url);
+      if (!embedUrl) return '';
+      return `
+        <div class="relative rounded-2xl overflow-hidden aspect-video border border-cucha-gold/20 shadow-2xl bg-black">
+          <iframe class="w-full h-full" src="${embedUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+      `;
+    }).join('');
   }
 
   // Setup Form Submission & WhatsApp redirection

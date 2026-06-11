@@ -140,17 +140,22 @@
       </div>
 
       <!-- Section: Media Elements -->
-      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
-        <h2 class="text-xl font-bold text-amber-500 mb-4">Medios y Enlaces de Video</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">URL de Video Reel (Embed para YouTube/Vimeo)</label>
-            <input type="text" id="gen-video-url" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+      <div class="bg-slate-800 p-6 rounded-xl border border-slate-700 space-y-6">
+        <h2 class="text-xl font-bold text-amber-500 mb-2">Medios y Enlaces de Video</h2>
+        
+        <div class="space-y-4">
+          <div class="flex justify-between items-center border-b border-slate-700 pb-2">
+            <h3 class="text-xs uppercase tracking-wider text-slate-400 font-bold">Videos de la Experiencia en Vivo</h3>
+            <button onclick="addVideoUrlInput()" class="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3 py-1 rounded">+ Agregar Video</button>
           </div>
-          <div>
-            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Enlace de Press Kit / Dossier</label>
-            <input type="text" id="gen-press-kit" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: /docs/presskit.pdf">
+          <div id="admin-videos-list" class="space-y-3">
+            <!-- Dynamic inputs inserted here via JS -->
           </div>
+        </div>
+
+        <div class="border-t border-slate-700 pt-4">
+          <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Enlace de Press Kit / Dossier</label>
+          <input type="text" id="gen-press-kit" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded focus:border-amber-500 text-white" placeholder="Ej: /docs/presskit.pdf">
         </div>
       </div>
 
