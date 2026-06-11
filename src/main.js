@@ -294,11 +294,14 @@ function renderLangContent(data, lang) {
   }
 
   // General Hrefs (WhatsApp links)
-  const whatsappNumber = general?.whatsapp || '34600000000';
-  const defaultWaText = lang === 'es'
-    ? 'Hola Cucha, me gustaría consultar tu disponibilidad para un evento.'
-    : 'Hello Cucha, I would like to check your availability for an event.';
-  const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultWaText)}`;
+  let waLink = t.whatsappLink || '';
+  if (!waLink) {
+    const whatsappNumber = general?.whatsapp || '34600000000';
+    const defaultWaText = lang === 'es'
+      ? 'Hola Cucha, me gustara consultar tu disponibilidad para un evento.'
+      : 'Hello Cucha, I would like to check your availability for an event.';
+    waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultWaText)}`;
+  }
 
   // Apply to all WhatsApp buttons
   document.querySelectorAll('.btn-whatsapp-dynamic').forEach(btn => {

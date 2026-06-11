@@ -19,7 +19,7 @@ async function login() {
       // Populate global inputs
       document.getElementById('gen-logo-text').value = appData.general?.logoText || 'CUCHA';
       document.getElementById('gen-logo-image').value = appData.general?.logoImage || '';
-      document.getElementById('gen-whatsapp').value = appData.general?.whatsapp || '';
+
       document.getElementById('gen-instagram').value = appData.general?.instagram || '';
       document.getElementById('gen-youtube').value = appData.general?.youtube || '';
       const rawVids = appData.general?.videoUrls || (appData.general?.heroVideoUrl ? [appData.general.heroVideoUrl] : []);
@@ -294,6 +294,10 @@ function renderTabContent(lang) {
         <div>
           <label class="block text-xs text-slate-400 mb-1">Botón de Cabecera (e.g. Consultar / Inquire)</label>
           <input type="text" id="${lang}-header-btninquire" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white" value="${t.header?.btnInquire || ''}">
+        </div>
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">Enlace de WhatsApp (Link Completo: https://wa.me/...)</label>
+          <input type="text" id="${lang}-whatsapp-link" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white" value="${t.whatsappLink || ''}" placeholder="Ej: https://wa.me/971586171902?text=...">
         </div>
       </div>
     </div>
@@ -581,7 +585,7 @@ window.saveChanges = async () => {
   if (!appData.general) appData.general = {};
   appData.general.logoText = document.getElementById('gen-logo-text').value;
   appData.general.logoImage = document.getElementById('gen-logo-image').value;
-  appData.general.whatsapp = document.getElementById('gen-whatsapp').value;
+
   appData.general.instagram = document.getElementById('gen-instagram').value;
   appData.general.youtube = document.getElementById('gen-youtube').value;
   
@@ -631,6 +635,7 @@ window.saveChanges = async () => {
     // Header
     if (!appData[lang].header) appData[lang].header = {};
     appData[lang].header.btnInquire = document.getElementById(`${lang}-header-btninquire`).value;
+    appData[lang].whatsappLink = document.getElementById(`${lang}-whatsapp-link`).value.trim();
 
     // Hero
     if (!appData[lang].hero) appData[lang].hero = {};

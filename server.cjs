@@ -25,7 +25,24 @@ app.post('/api/content', (req, res) => {
     return res.status(401).json({ error: 'Unauthorized' });
   }
   
-  fs.writeFileSync(DATA_FILE, JSON.stringify(req.body, null, 2), 'utf8');
+  const body = req.body;
+  fs.writeFileSync(DATA_FILE, JSON.stringify(body, null, 2), 'utf8');
+  
+  // Overwrite root favicon files dynamically on save
+  if (body.general?.favicon) {
+    const cleanPath = body.general.favicon.replace(/^\//, '');
+    const favPath = path.join(__dirname, 'public', cleanPath);
+    if (fs.existsSync(favPath)) {
+      try {
+        fs.copyFileSync(favPath, path.join(__dirname, 'public', 'favicon.svg'));
+        fs.copyFileSync(favPath, path.join(__dirname, 'public', 'favicon.ico'));
+        console.log('Successfully updated root favicon files.');
+      } catch (e) {
+        console.error('Failed to copy favicon:', e);
+      }
+    }
+  }
+  
   res.json({ success: true });
 });
 
