@@ -35,6 +35,8 @@ async function login() {
       document.getElementById('hero-opacity-val').textContent = opacityVal + '%';
       document.getElementById('gen-img-experience').value = appData.general?.experienceImage || '';
       document.getElementById('gen-img-bio').value = appData.general?.bioImage || '';
+      document.getElementById('gen-favicon').value = appData.general?.favicon || '/favicon.svg';
+      document.getElementById('gen-share-image').value = appData.general?.shareImage || '/cucha2.jpg';
 
       // Populate gallery images
       const gal = appData.general?.galleryImages || [];
@@ -600,6 +602,8 @@ window.saveChanges = async () => {
   appData.general.heroOpacity = parseInt(document.getElementById('gen-hero-opacity').value, 10);
   appData.general.experienceImage = document.getElementById('gen-img-experience').value;
   appData.general.bioImage = document.getElementById('gen-img-bio').value;
+  appData.general.favicon = document.getElementById('gen-favicon').value;
+  appData.general.shareImage = document.getElementById('gen-share-image').value;
 
   // Save gallery images
   appData.general.galleryImages = [0, 1, 2, 3].map(i => document.getElementById(`gen-gallery-img-${i}`).value);

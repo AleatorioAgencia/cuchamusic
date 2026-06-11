@@ -45,6 +45,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupScrollReveal();
   // Setup Navbar backdrop scroll listener
   setupNavbarScroll();
+  
+  // Set dynamically customized Favicon
+  const faviconLink = document.getElementById('favicon-link');
+  if (faviconLink && data.general?.favicon) {
+    faviconLink.href = data.general.favicon;
+  }
+  
+  // Set dynamically customized OG Image
+  const ogImageMeta = document.getElementById('og-image-meta');
+  if (ogImageMeta && data.general?.shareImage) {
+    // Make absolute URL for social crawlers (fallback to relative if origin is not resolved)
+    const absoluteShareUrl = data.general.shareImage.startsWith('http') 
+      ? data.general.shareImage 
+      : window.location.origin + data.general.shareImage;
+    ogImageMeta.content = absoluteShareUrl;
+  }
 });
 
 // Setup Scroll Reveal Intersection Observer

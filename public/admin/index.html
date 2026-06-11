@@ -196,6 +196,30 @@
             </div>
           </div>
         </div>
+        
+        <!-- Row for Favicon and Share Image -->
+        <div class="grid md:grid-cols-2 gap-6 border-t border-slate-700 pt-6 mt-6">
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold flex justify-between">
+              <span>Favicon de la Web (.png, .ico, .svg)</span>
+            </label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-favicon" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" placeholder="Ej: /favicon.svg">
+              <input type="file" id="upload-favicon" class="hidden" onchange="handleFileUpload('upload-favicon', 'gen-favicon')">
+              <button onclick="document.getElementById('upload-favicon').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded text-xs font-semibold whitespace-nowrap">Subir Favicon</button>
+            </div>
+          </div>
+          <div>
+            <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold flex justify-between">
+              <span>Imagen Compartir Link (SEO / Open Graph)</span>
+            </label>
+            <div class="flex gap-2">
+              <input type="text" id="gen-share-image" class="w-full bg-slate-900 border border-slate-700 p-2 rounded text-white text-xs" placeholder="Ej: /cucha2.jpg">
+              <input type="file" id="upload-share-image" class="hidden" onchange="handleFileUpload('upload-share-image', 'gen-share-image')">
+              <button onclick="document.getElementById('upload-share-image').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 px-3 py-1.5 rounded text-xs font-semibold whitespace-nowrap">Subir Imagen Share</button>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Section: Gallery Grid Images -->

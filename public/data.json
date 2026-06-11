@@ -6,17 +6,17 @@
     "pressKitUrl": "",
     "heroVideoUrl": "https://www.youtube.com/embed/dv7tUskx5nA",
     "heroImages": [
-      "/uploads/1781199388009-hf_20260611_172622_586c8c40-c80e-4bf9-bd2a-7bd289eff5e7.png"
+      "/uploads/1781200563411-hf_20260611_172622_586c8c40-c80e-4bf9-bd2a-7bd289eff5e7.png"
     ],
     "experienceImage": "/uploads/1781199677587-IMG_0053.jpg",
     "bioImage": "/cucha.png",
     "logoText": "CUCHAMUSIC",
     "logoImage": "/uploads/1781132871155-hf_20260610_213809_5407ad7f-15de-40d7-bcc6-75ad9b1b9005-removebg-preview.png",
     "galleryImages": [
-      "https://images.unsplash.com/photo-1574169208507-84376144848b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      "/cucha.png",
-      "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+      "/uploads/1781201185375-SaveClipApp_654951027_18074005076396477_8082946872428300193_n.jpg",
+      "/uploads/1781201175523-SaveClipApp_642958172_17918550405274852_4383134856228717803_n.jpg",
+      "/uploads/1781201192780-SaveClipApp_526517898_18515019502040336_4198502668273657245_n.jpg",
+      "/uploads/1781201199614-IMG_1030.jpg"
     ],
     "sectionsVisibility": {
       "whyCucha": true,
@@ -26,14 +26,15 @@
       "gallery": true,
       "bookingProcess": true,
       "faqs": true,
-      "contactForm": true,
+      "contactForm": false,
       "finalCta": true
     },
     "videoUrls": [
       "https://www.youtube.com/embed/dv7tUskx5nA",
       "https://www.youtube.com/embed/_6U4UAdXoL4",
       "https://www.youtube.com/embed/GzdUtrfRY8A"
-    ]
+    ],
+    "heroOpacity": 100
   },
   "es": {
     "hero": {
