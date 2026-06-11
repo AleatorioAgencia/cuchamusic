@@ -30,6 +30,9 @@ async function login() {
       if (appData.general?.heroImages && appData.general.heroImages.length > 0) {
         document.getElementById('gen-img-hero').value = appData.general.heroImages[0];
       }
+      const opacityVal = appData.general?.heroOpacity !== undefined ? appData.general.heroOpacity : 50;
+      document.getElementById('gen-hero-opacity').value = opacityVal;
+      document.getElementById('hero-opacity-val').textContent = opacityVal + '%';
       document.getElementById('gen-img-experience').value = appData.general?.experienceImage || '';
       document.getElementById('gen-img-bio').value = appData.general?.bioImage || '';
 
@@ -594,6 +597,7 @@ window.saveChanges = async () => {
   appData.general.pressKitUrl = document.getElementById('gen-press-kit').value;
   
   appData.general.heroImages = [document.getElementById('gen-img-hero').value];
+  appData.general.heroOpacity = parseInt(document.getElementById('gen-hero-opacity').value, 10);
   appData.general.experienceImage = document.getElementById('gen-img-experience').value;
   appData.general.bioImage = document.getElementById('gen-img-bio').value;
 

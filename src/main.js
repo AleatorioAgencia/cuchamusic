@@ -302,8 +302,13 @@ function renderLangContent(data, lang) {
 
   document.getElementById('hero-btn-secondary-text').textContent = t.hero.btnReel;
   
-  if (general?.heroImages && general.heroImages.length > 0) {
-    document.getElementById('hero-bg-img').src = general.heroImages[0];
+  const heroBgImg = document.getElementById('hero-bg-img');
+  if (heroBgImg) {
+    if (general?.heroImages && general.heroImages.length > 0) {
+      heroBgImg.src = general.heroImages[0];
+    }
+    const opacityVal = general?.heroOpacity !== undefined ? general.heroOpacity : 50;
+    heroBgImg.style.opacity = opacityVal / 100;
   }
 
   // Hero trust strip

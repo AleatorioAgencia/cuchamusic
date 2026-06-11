@@ -170,6 +170,14 @@
               <input type="file" id="upload-img-hero" class="hidden" onchange="handleFileUpload('upload-img-hero', 'gen-img-hero')">
               <button onclick="document.getElementById('upload-img-hero').click()" class="bg-slate-700 hover:bg-slate-600 text-slate-200 py-1.5 rounded text-xs font-semibold">Subir Foto Hero</button>
             </div>
+            
+            <div class="mt-4">
+              <label class="block text-[10px] uppercase tracking-wider text-slate-500 mb-1.5 font-bold flex justify-between">
+                <span>Opacidad de Fondo Hero</span>
+                <span id="hero-opacity-val" class="text-amber-500 font-bold">50%</span>
+              </label>
+              <input type="range" id="gen-hero-opacity" min="0" max="100" step="5" class="w-full h-1 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-amber-500" oninput="document.getElementById('hero-opacity-val').textContent = this.value + '%'">
+            </div>
           </div>
           <div>
             <label class="block text-xs uppercase tracking-wider text-slate-400 mb-2 font-semibold">Foto Experiencia</label>
