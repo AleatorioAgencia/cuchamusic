@@ -300,8 +300,10 @@ function renderLangContent(data, lang) {
 
   // Hero trust strip
   const trustStripContainer = document.getElementById('hero-trust-strip');
+  if (trustStripContainer && t.hero?.trustStrip) {
   const trustItems = t.hero.trustStrip.split(' · ');
   trustStripContainer.innerHTML = trustItems.map(item => `<span>${item}</span>`).join('');
+  }
 
   // Why Cucha Section
   document.getElementById('why-title').textContent = t.whyCucha.title;
