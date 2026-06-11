@@ -46,10 +46,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Setup Navbar backdrop scroll listener
   setupNavbarScroll();
   
-  // Set dynamically customized Favicon
+  // Set dynamically customized Favicon (with cache-busting version parameter)
   const faviconLink = document.getElementById('favicon-link');
   if (faviconLink && data.general?.favicon) {
-    faviconLink.href = data.general.favicon;
+    const version = data.general.faviconVersion || Date.now();
+    const separator = data.general.favicon.includes('?') ? '&' : '?';
+    faviconLink.href = data.general.favicon + separator + 'v=' + version;
   }
   
   // Set dynamically customized OG Image

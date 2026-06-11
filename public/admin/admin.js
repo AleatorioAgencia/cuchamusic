@@ -602,7 +602,11 @@ window.saveChanges = async () => {
   appData.general.heroOpacity = parseInt(document.getElementById('gen-hero-opacity').value, 10);
   appData.general.experienceImage = document.getElementById('gen-img-experience').value;
   appData.general.bioImage = document.getElementById('gen-img-bio').value;
-  appData.general.favicon = document.getElementById('gen-favicon').value;
+  const newFavicon = document.getElementById('gen-favicon').value;
+  if (appData.general.favicon !== newFavicon) {
+    appData.general.favicon = newFavicon;
+    appData.general.faviconVersion = Date.now();
+  }
   appData.general.shareImage = document.getElementById('gen-share-image').value;
 
   // Save gallery images

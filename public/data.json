@@ -1,6 +1,6 @@
 {
   "general": {
-    "whatsapp": "34600000000",
+    "whatsapp": "https://wa.me/971586171902?text=Hola%20Cucha!%20he%20visto%20tu%20pagina%20web%20y%20estoy%20interesad@%20en%20agendar%20una%20fecha%20contigo",
     "instagram": "https://instagram.com/cuchamusic",
     "youtube": "https://youtu.be/dv7tUskx5nA?si=jCzUrZ5A0WRnShI6",
     "pressKitUrl": "",
@@ -34,7 +34,9 @@
       "https://www.youtube.com/embed/_6U4UAdXoL4",
       "https://www.youtube.com/embed/GzdUtrfRY8A"
     ],
-    "heroOpacity": 100
+    "heroOpacity": 100,
+    "favicon": "/uploads/1781201676072-hf_20260610_213809_5407ad7f-15de-40d7-bcc6-75ad9b1b9005-removebg-preview1.png",
+    "shareImage": "/uploads/1781201685653-hf_20260610_213809_5407ad7f-15de-40d7-bcc6-75ad9b1b9005-removebg-preview1.png"
   },
   "es": {
     "hero": {
