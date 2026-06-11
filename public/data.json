@@ -35,8 +35,9 @@
       "https://www.youtube.com/embed/GzdUtrfRY8A"
     ],
     "heroOpacity": 100,
-    "favicon": "/uploads/1781202155299-hf_20260610_213809_5407ad7f-15de-40d7-bcc6-75ad9b1b9005-removebg-preview1.png",
-    "shareImage": "/uploads/1781201685653-hf_20260610_213809_5407ad7f-15de-40d7-bcc6-75ad9b1b9005-removebg-preview1.png"
+    "favicon": "/uploads/cucha-favicon.png",
+    "shareImage": "/uploads/1781203427632-SaveClipApp_654951027_18074005076396477_8082946872428300193_n.jpg",
+    "faviconVersion": 1781203881719
   },
   "es": {
     "hero": {
@@ -180,7 +181,8 @@
     },
     "contact": {
       "btnSubmit": "Enviar consulta"
-    }
+    },
+    "whatsappLink": "https://wa.me/971586171902?text=Hola%20Cucha!%20he%20visto%20tu%20pagina%20web%20y%20estoy%20interesad@%20en%20agendar%20una%20fecha%20contigo"
   },
   "en": {
     "hero": {
@@ -324,6 +326,7 @@
     },
     "contact": {
       "btnSubmit": "Send Inquiry"
-    }
+    },
+    "whatsappLink": "https://wa.me/971586171901?text=Hi%20Cucha!%20I%20saw%20your%20website%20and%20I%E2%80%99m%20interested%20in%20checking%20your%20availability%20for%20an%20event.%20I%E2%80%99d%20love%20to%20receive%20more%20information."
   }
 }
