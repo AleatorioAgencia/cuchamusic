@@ -17,13 +17,18 @@
   --font-body: 'DM Sans', sans-serif;
 }
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background-color: var(--color-black);
   color: var(--color-light);
   font-family: var(--font-body);
-  overflow-x: hidden;
-  margin: 0;
-  padding: 0;
 }
 
 /* Background Grids */
