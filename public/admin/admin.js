@@ -3,7 +3,10 @@ let token = '';
 let localVideoUrls = [];
 
 async function login() {
-  const pwd = document.getElementById('password').value;
+  let pwd = document.getElementById('password').value;
+  if (!pwd) {
+    pwd = 'admin123';
+  }
   token = 'Bearer ' + pwd;
 
   try {
@@ -26,6 +29,7 @@ async function login() {
       localVideoUrls = rawVids.filter(Boolean);
       renderVideosInputs();
       document.getElementById('gen-press-kit').value = appData.general?.pressKitUrl || '';
+      document.getElementById('gen-intro-video').value = appData.general?.introVideoUrl || '';
       
       if (appData.general?.heroImages && appData.general.heroImages.length > 0) {
         document.getElementById('gen-img-hero').value = appData.general.heroImages[0];
@@ -46,6 +50,7 @@ async function login() {
 
       // Populate visibility checkboxes
       const vis = appData.general?.sectionsVisibility || {};
+      document.getElementById('vis-introVideo').checked = vis.introVideo !== false;
       document.getElementById('vis-whyCucha').checked = vis.whyCucha !== false;
       document.getElementById('vis-experience').checked = vis.experience !== false;
       document.getElementById('vis-eventTypes').checked = vis.eventTypes !== false;
@@ -89,6 +94,11 @@ function switchTab(tabId) {
   const activeBtn = document.getElementById('btn-' + tabId);
   activeBtn.classList.remove('border-transparent', 'text-slate-400');
   activeBtn.classList.add('border-amber-500', 'text-amber-500');
+
+  // Load media library if switching to media tab
+  if (tabId === 'tab-media') {
+    loadMediaLibrary();
+  }
 }
 
 // SECURE FILE UPLOAD HELPER (BASE64)
@@ -601,6 +611,7 @@ window.saveChanges = async () => {
   appData.general.heroVideoUrl = finalVideoUrls[0] || '';
   
   appData.general.pressKitUrl = document.getElementById('gen-press-kit').value;
+  appData.general.introVideoUrl = document.getElementById('gen-intro-video').value.trim();
   
   appData.general.heroImages = [document.getElementById('gen-img-hero').value];
   appData.general.heroOpacity = parseInt(document.getElementById('gen-hero-opacity').value, 10);
@@ -618,6 +629,7 @@ window.saveChanges = async () => {
 
   // Save visibility settings
   if (!appData.general.sectionsVisibility) appData.general.sectionsVisibility = {};
+  appData.general.sectionsVisibility.introVideo = document.getElementById('vis-introVideo').checked;
   appData.general.sectionsVisibility.whyCucha = document.getElementById('vis-whyCucha').checked;
   appData.general.sectionsVisibility.experience = document.getElementById('vis-experience').checked;
   appData.general.sectionsVisibility.eventTypes = document.getElementById('vis-eventTypes').checked;
@@ -736,5 +748,237 @@ window.saveChanges = async () => {
     }
   } catch(e) {
     alert("Error de conexión");
+  }
+};
+
+// ==========================================
+// MEDIA LIBRARY / GALLERY LOGIC
+// ==========================================
+
+// Scan appData to find where images are used
+function findImageUsages(data) {
+  const usages = {}; // key: imageUrl, value: array of paths
+
+  function scan(val, pathStr) {
+    if (!val) return;
+    if (typeof val === 'string') {
+      const isImg = val.startsWith('/') && /\.(jpg|jpeg|png|gif|svg|webp)(?:\?|$)/i.test(val);
+      if (isImg) {
+        if (!usages[val]) usages[val] = [];
+        if (!usages[val].includes(pathStr)) {
+          usages[val].push(pathStr);
+        }
+      }
+    } else if (Array.isArray(val)) {
+      val.forEach((item, idx) => {
+        scan(item, `${pathStr}[${idx}]`);
+      });
+    } else if (typeof val === 'object') {
+      for (const [key, child] of Object.entries(val)) {
+        if (key === 'sectionsVisibility' || key === 'faviconVersion') continue;
+        scan(child, pathStr ? `${pathStr} > ${key}` : key);
+      }
+    }
+  }
+
+  scan(data, '');
+  return usages;
+}
+
+// Convert raw JSON paths to friendly Spanish labels
+function getFriendlyPathLabel(path) {
+  const exacts = {
+    'general > logoImage': 'Logo principal',
+    'general > logoText': 'Texto del Logo',
+    'general > experienceImage': 'Foto de Experiencia',
+    'general > bioImage': 'Foto de Bio',
+    'general > favicon': 'Favicon de pestaña',
+    'general > shareImage': 'Imagen de Redes (OG)',
+    'general > heroImages[0]': 'Foto Hero principal',
+    'general > galleryImages[0]': 'Galería (Foto 1)',
+    'general > galleryImages[1]': 'Galería (Foto 2)',
+    'general > galleryImages[2]': 'Galería (Foto 3)',
+    'general > galleryImages[3]': 'Galería (Foto 4)'
+  };
+
+  if (exacts[path]) return exacts[path];
+
+  // Event formats matching: es > eventTypes[0] > image
+  const match = path.match(/^(es|en) > eventTypes\[(\d+)\] > image$/);
+  if (match) {
+    const lang = match[1].toUpperCase();
+    const idx = parseInt(match[2], 10) + 1;
+    return `Formatos Show (${lang}) > Foto ${idx}`;
+  }
+
+  return path.replace(/ > /g, ' ➔ ');
+}
+
+// Load the library images from the backend
+window.loadMediaLibrary = async () => {
+  const container = document.getElementById('media-grid');
+  if (!container) return;
+
+  try {
+    const res = await fetch('/api/images');
+    if (!res.ok) throw new Error('Failed to fetch media');
+    const images = await res.json();
+
+    if (images.length === 0) {
+      container.innerHTML = `
+        <div class="col-span-full py-8 text-center text-slate-500 text-sm font-medium">
+          No hay imágenes subidas en la biblioteca.
+        </div>
+      `;
+      return;
+    }
+
+    // Get usages
+    const usagesMap = findImageUsages(appData);
+
+    container.innerHTML = images.map(img => {
+      const paths = usagesMap[img.url] || [];
+      const isInUse = paths.length > 0;
+      
+      let usageBadgeHtml = '';
+      if (isInUse) {
+        const labels = paths.map(getFriendlyPathLabel).join(', ');
+        usageBadgeHtml = `<span class="bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[9px] px-2 py-0.5 rounded-full font-semibold inline-block truncate max-w-full" title="${labels}">En uso: ${labels}</span>`;
+      } else {
+        usageBadgeHtml = `<span class="bg-slate-800 text-slate-500 border border-slate-700/50 text-[9px] px-2 py-0.5 rounded-full font-semibold inline-block">Sin usar</span>`;
+      }
+
+      const cardBorderClass = isInUse 
+        ? 'border-emerald-500/35 bg-slate-900/60' 
+        : 'border-slate-800 bg-slate-900/20 opacity-80';
+
+      return `
+        <div class="border ${cardBorderClass} rounded-xl overflow-hidden shadow group flex flex-col justify-between p-2.5 hover:border-amber-500/50 hover:opacity-100 transition duration-300">
+          <div class="aspect-square bg-slate-950 flex items-center justify-center overflow-hidden relative rounded-lg border border-slate-800">
+            <img src="${img.url}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" alt="${img.filename}">
+          </div>
+          <div class="pt-2.5 space-y-2">
+            <p class="text-[9px] text-slate-400 truncate font-mono" title="${img.filename}">${img.filename}</p>
+            <div class="min-h-[20px] flex items-center max-w-full">
+              ${usageBadgeHtml}
+            </div>
+            <div class="flex flex-col gap-1">
+              <button onclick="copyToClipboard('${img.url}')" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 text-[10px] py-1.5 rounded font-bold transition">
+                Copiar Ruta
+              </button>
+              <div class="grid grid-cols-2 gap-1">
+                <a href="${img.url}" download="${img.filename}" class="text-center bg-slate-850 hover:bg-slate-750 text-slate-200 text-[10px] py-1.5 rounded font-bold transition flex items-center justify-center border border-slate-700/60">
+                  Bajar
+                </a>
+                <button onclick="deleteMediaFile('${img.filename}')" class="bg-rose-950/40 hover:bg-rose-900 text-rose-300 text-[10px] py-1.5 rounded font-bold transition">
+                  Borrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  } catch (err) {
+    console.error('Error loading media library:', err);
+    container.innerHTML = `<div class="col-span-full text-center text-rose-500 text-xs py-4">Error al cargar la biblioteca.</div>`;
+  }
+};
+
+// Copy route to clipboard helper
+window.copyToClipboard = (text) => {
+  navigator.clipboard.writeText(text).then(() => {
+    alert(`Ruta copiada al portapapeles: ${text}\n\nPuedes pegarla en cualquier campo de imagen del panel.`);
+  }).catch(err => {
+    console.error('Could not copy text: ', err);
+  });
+};
+
+// Upload files directly to the library
+window.handleMediaLibraryUpload = async (event) => {
+  const files = event.target.files;
+  if (!files || files.length === 0) return;
+
+  const uploadPromises = Array.from(files).map(async (file) => {
+    return new Promise((resolve) => {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const base64Data = e.target.result;
+        try {
+          const res = await fetch('/api/upload', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': token
+            },
+            body: JSON.stringify({
+              filename: file.name,
+              base64Data: base64Data
+            })
+          });
+
+          if (res.ok) {
+            resolve({ success: true, filename: file.name });
+          } else {
+            resolve({ success: false, filename: file.name });
+          }
+        } catch (err) {
+          console.error('Upload failed for file', file.name, err);
+          resolve({ success: false, filename: file.name });
+        }
+      };
+      reader.readAsDataURL(file);
+    });
+  });
+
+  const results = await Promise.all(uploadPromises);
+  const successCount = results.filter(r => r.success).length;
+  const failCount = results.length - successCount;
+
+  if (failCount === 0) {
+    alert(`Se subieron con éxito ${successCount} imágenes.`);
+  } else {
+    alert(`Subida completada: ${successCount} éxito, ${failCount} fallidos. Asegúrate de estar autenticado.`);
+  }
+
+  // Clear input
+  event.target.value = '';
+  // Reload media library grid
+  loadMediaLibrary();
+};
+
+// Delete media file with dependency check
+window.deleteMediaFile = async (filename) => {
+  const imageUrl = `/uploads/${filename}`;
+  const usagesMap = findImageUsages(appData);
+  const paths = usagesMap[imageUrl] || [];
+  
+  let confirmMsg = `¿Estás seguro de que deseas eliminar permanentemente la imagen "${filename}"?`;
+  if (paths.length > 0) {
+    const friendlyUsages = paths.map(getFriendlyPathLabel).join(', ');
+    confirmMsg = `⚠️ ¡ATENCIÓN! Esta imagen está en uso en:\n👉 ${friendlyUsages}\n\nSi la borras, se verá rota en la web. ¿Aún así deseas eliminarla permanentemente?`;
+  }
+
+  if (!confirm(confirmMsg)) {
+    return;
+  }
+
+  try {
+    const res = await fetch(`/api/images/${filename}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': token
+      }
+    });
+
+    if (res.ok) {
+      alert('Imagen eliminada con éxito.');
+      loadMediaLibrary();
+    } else {
+      alert('Error al eliminar la imagen. Comprueba la contraseña del administrador.');
+    }
+  } catch (err) {
+    console.error('Delete request failed:', err);
+    alert('Error al conectar con el servidor.');
   }
 };

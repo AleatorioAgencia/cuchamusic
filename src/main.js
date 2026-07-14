@@ -1,5 +1,23 @@
 import './style.css';
 
+// HELPER: Convert normal YouTube/Vimeo URLs to embed compatible format
+function convertToEmbedUrl(url) {
+  if (!url) return '';
+  url = url.trim();
+  if (url.includes('youtube.com/embed/') || url.includes('player.vimeo.com/video/')) {
+    return url;
+  }
+  const ytWatchMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s?]+)/);
+  if (ytWatchMatch && ytWatchMatch[1]) {
+    return `https://www.youtube.com/embed/${ytWatchMatch[1]}`;
+  }
+  const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
+  if (vimeoMatch && vimeoMatch[1]) {
+    return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
+  }
+  return url;
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   let appData = null;
   let currentLang = localStorage.getItem('cucha-lang');
@@ -48,19 +66,19 @@ document.addEventListener('DOMContentLoaded', async () => {
   
   // Set dynamically customized Favicon (with cache-busting version parameter)
   const faviconLink = document.getElementById('favicon-link');
-  if (faviconLink && data.general?.favicon) {
-    const version = data.general.faviconVersion || Date.now();
-    const separator = data.general.favicon.includes('?') ? '&' : '?';
-    faviconLink.href = data.general.favicon + separator + 'v=' + version;
+  if (faviconLink && appData?.general?.favicon) {
+    const version = appData.general.faviconVersion || Date.now();
+    const separator = appData.general.favicon.includes('?') ? '&' : '?';
+    faviconLink.href = appData.general.favicon + separator + 'v=' + version;
   }
   
   // Set dynamically customized OG Image
   const ogImageMeta = document.getElementById('og-image-meta');
-  if (ogImageMeta && data.general?.shareImage) {
+  if (ogImageMeta && appData?.general?.shareImage) {
     // Make absolute URL for social crawlers (fallback to relative if origin is not resolved)
-    const absoluteShareUrl = data.general.shareImage.startsWith('http') 
-      ? data.general.shareImage 
-      : window.location.origin + data.general.shareImage;
+    const absoluteShareUrl = appData.general.shareImage.startsWith('http') 
+      ? appData.general.shareImage 
+      : window.location.origin + appData.general.shareImage;
     ogImageMeta.content = absoluteShareUrl;
   }
 });
@@ -131,23 +149,7 @@ function initApp(data, lang) {
   // Run initial render
   updateLangUI(lang);
 
-  // HELPER: Convert normal YouTube/Vimeo URLs to embed compatible format
-  function convertToEmbedUrl(url) {
-    if (!url) return '';
-    url = url.trim();
-    if (url.includes('youtube.com/embed/') || url.includes('player.vimeo.com/video/')) {
-      return url;
-    }
-    const ytWatchMatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s?]+)/);
-    if (ytWatchMatch && ytWatchMatch[1]) {
-      return `https://www.youtube.com/embed/${ytWatchMatch[1]}`;
-    }
-    const vimeoMatch = url.match(/vimeo\.com\/(\d+)/);
-    if (vimeoMatch && vimeoMatch[1]) {
-      return `https://player.vimeo.com/video/${vimeoMatch[1]}`;
-    }
-    return url;
-  }
+
 
   // Setup Video Embed Direct (Multiple Videos)
   const videoContainer = document.getElementById('video-container');
@@ -237,6 +239,7 @@ function renderLangContent(data, lang) {
   // 2. Dynamic Section Visibility Toggles (Hides from DOM & menu links)
   const vis = general?.sectionsVisibility || {};
   const sectionsMapping = {
+    'intro-video': vis.introVideo !== false && !!general?.introVideoUrl,
     'why': vis.whyCucha !== false,
     'experience': vis.experience !== false,
     'events': vis.eventTypes !== false,
@@ -290,6 +293,20 @@ function renderLangContent(data, lang) {
     const imgEl = document.getElementById(`gallery-img-${i}`);
     if (imgEl && galImgs[i]) {
       imgEl.src = galImgs[i];
+    }
+  }
+
+  // Setup Intro Video iframe
+  const introIframe = document.getElementById('intro-video-iframe');
+  if (introIframe) {
+    const introUrl = general?.introVideoUrl || '';
+    if (introUrl && vis.introVideo !== false) {
+      const embedUrl = convertToEmbedUrl(introUrl);
+      if (introIframe.src !== embedUrl) {
+        introIframe.src = embedUrl;
+      }
+    } else {
+      introIframe.src = '';
     }
   }
 

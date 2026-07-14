@@ -81,6 +81,54 @@ app.post('/api/upload', (req, res) => {
   }
 });
 
+// GET /api/images - List all uploaded images
+app.get('/api/images', (req, res) => {
+  const uploadsDir = path.join(__dirname, 'public', 'uploads');
+  if (!fs.existsSync(uploadsDir)) {
+    return res.json([]);
+  }
+  try {
+    const files = fs.readdirSync(uploadsDir);
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.svg', '.webp'];
+    const images = files
+      .filter(file => imageExtensions.includes(path.extname(file).toLowerCase()))
+      .map(file => ({
+        filename: file,
+        url: `/uploads/${file}`
+      }));
+    res.json(images);
+  } catch (err) {
+    console.error('Error listing uploads:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// DELETE /api/images/:filename - Delete an image physically
+app.delete('/api/images/:filename', (req, res) => {
+  const password = req.headers['authorization'];
+  if (password !== 'Bearer admin123') {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+
+  const filename = req.params.filename;
+  if (filename.includes('..') || filename.includes('/') || filename.includes('\\')) {
+    return res.status(400).json({ error: 'Invalid filename' });
+  }
+
+  const filePath = path.join(__dirname, 'public', 'uploads', filename);
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).json({ error: 'File not found' });
+  }
+
+  try {
+    fs.unlinkSync(filePath);
+    res.json({ success: true });
+  } catch (err) {
+    console.error('Error deleting file:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 const PORT = 3000;
 app.listen(PORT, () => {
   console.log('Server running on port ' + PORT);
