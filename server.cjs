@@ -129,7 +129,8 @@ app.delete('/api/images/:filename', (req, res) => {
   }
 });
 
-const PORT = 3000;
+// Puerto fijo de la API de CUCHA Music (la web Vite corre en 4310 y hace proxy de /api aquí)
+const PORT = process.env.PORT || 4311;
 app.listen(PORT, () => {
-  console.log('Server running on port ' + PORT);
+  console.log('API running on http://localhost:' + PORT + '  (web: http://localhost:4310)');
 });

@@ -197,7 +197,7 @@ function initApp(data, lang) {
 - Event Type: ${eventType}
 - Message: ${message}`;
 
-    const whatsappNumber = data.general?.whatsapp || '34600000000';
+    const whatsappNumber = data.general?.whatsapp || '573106349702';
     const waLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(waText)}`;
 
     // Transition form to success state
@@ -313,7 +313,7 @@ function renderLangContent(data, lang) {
   // General Hrefs (WhatsApp links)
   let waLink = t.whatsappLink || '';
   if (!waLink) {
-    const whatsappNumber = general?.whatsapp || '34600000000';
+    const whatsappNumber = general?.whatsapp || '573106349702';
     const defaultWaText = lang === 'es'
       ? 'Hola Cucha, me gustara consultar tu disponibilidad para un evento.'
       : 'Hello Cucha, I would like to check your availability for an event.';

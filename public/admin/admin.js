@@ -307,7 +307,7 @@ function renderTabContent(lang) {
         </div>
         <div>
           <label class="block text-xs text-slate-400 mb-1">Enlace de WhatsApp (Link Completo: https://wa.me/...)</label>
-          <input type="text" id="${lang}-whatsapp-link" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white" value="${t.whatsappLink || ''}" placeholder="Ej: https://wa.me/971586171902?text=...">
+          <input type="text" id="${lang}-whatsapp-link" class="w-full bg-slate-900 border border-slate-700 p-2.5 rounded text-white" value="${t.whatsappLink || ''}" placeholder="Ej: https://wa.me/573106349702?text=...">
         </div>
       </div>
     </div>
